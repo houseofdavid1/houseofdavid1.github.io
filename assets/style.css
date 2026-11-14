@@ -326,3 +326,5 @@ td.pos { line-height: 1.4; }
 }
 
 .pos-note { font-weight: 400; color: var(--muted); font-size: 13px; }
+
+.deg { font-weight: 700; color: var(--navy); }
