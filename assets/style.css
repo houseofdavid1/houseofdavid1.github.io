@@ -143,7 +143,7 @@ a:hover { color: var(--accent-dark); }
 .pub-title { display: block; font-weight: 400; color: var(--ink); font-size: 15.5px; }
 .pub-authors { display: block; font-size: 14px; color: var(--body); }
 .pub-venue { display: block; font-size: 14px; color: var(--muted); }
-.pub-venue em { font-style: normal; font-weight: 700; color: var(--navy); }
+.pub-venue em { font-style: normal; font-weight: 700; color: var(--accent); }
 .pub-venue a { margin-left: 6px; font-weight: 500; text-decoration: none; }
 .year-head { margin: 48px 0 4px; font-size: 20px; color: var(--navy); }
 .year-head:first-of-type { margin-top: 8px; }
@@ -427,3 +427,7 @@ a.logo:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
 }
 .chip-off.pubs-off { background: var(--neutral-soft); border-color: var(--neutral-line); color: var(--navy); }
 .pubs-off { margin-left: 6px; }
+
+/* Current members keep the mint/teal accent */
+#members { --navy:#0E3B43; --accent:#0F7C7A; --accent-dark:#0A5F5D; --accent-light:#5CC7C0; --accent-light-hover:#86D8D2;
+  --accent-soft:#E3F3F2; --accent-soft-line:#BDE3E0; }
