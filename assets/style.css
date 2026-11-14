@@ -125,6 +125,9 @@ a:hover { color: var(--accent-dark); }
 .pub-list { list-style: none; margin: 0; padding: 0; }
 .pub-list li { padding: 18px 0; border-top: 1px solid var(--line); }
 .pub-list li:last-child { border-bottom: 1px solid var(--line); }
+.pub-list.numbered { counter-reset: pub; margin-top: 20px; }
+.pub-list.numbered li { counter-increment: pub; position: relative; padding-left: 48px; }
+.pub-list.numbered li::before { content: counter(pub) "."; position: absolute; left: 0; top: 18px; width: 36px; text-align: right; color: var(--muted); font-size: 14px; }
 .pub-title { display: block; font-weight: 500; color: var(--navy); font-size: 15.5px; }
 .pub-authors { display: block; font-size: 14px; color: var(--body); }
 .pub-venue { display: block; font-size: 14px; color: var(--muted); }
