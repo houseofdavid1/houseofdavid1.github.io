@@ -443,3 +443,7 @@ a.logo:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
 
 .lab-lead { display: inline-block; margin-top: 6px; padding: 2px 10px; border-radius: 999px; font-size: 11px; font-weight: 700;
   letter-spacing: 0.04em; color: var(--coral-text); background: var(--coral-soft); border: 1px solid #F6C9B8; }
+
+.em-img { display: inline-block; height: 1.25em; width: auto; vertical-align: -0.3em; user-select: none; -webkit-user-drag: none; pointer-events: none; }
+.member .em-line { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 8px; color: var(--muted); }
+.member .em-line .em-img { vertical-align: middle; }
