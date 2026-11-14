@@ -448,3 +448,4 @@ a.logo:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
 .member .em-line { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 8px; color: var(--muted); }
 .member .em-line .em-img { vertical-align: middle; }
 .member .em-line.em-top { margin-top: 10px; font-size: 13px; }
+.member .em-line.em-left { justify-content: flex-start; margin-top: 8px; }
