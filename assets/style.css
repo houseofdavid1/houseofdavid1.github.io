@@ -288,11 +288,11 @@ tr:last-child td { border-bottom: none; }
 .member-lead h3.has-pubs { justify-content: flex-start; }
 .pub-btn {
   display: inline-flex; align-items: center; gap: 5px; height: 28px; padding: 0 9px 0 9px;
-  border: 1px solid var(--mint); border-radius: 999px; background: var(--mint-soft); color: var(--mint-dark);
+  border: 1px solid var(--accent-soft-line); border-radius: 999px; background: var(--accent-soft); color: var(--accent);
   font: inherit; font-size: 12px; font-weight: 700; line-height: 1; cursor: pointer; white-space: nowrap;
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
-.pub-btn:hover, .pub-btn:focus-visible { background: var(--mint); border-color: var(--mint); color: #FFFFFF; transform: translateY(-1px); }
+.pub-btn:hover, .pub-btn:focus-visible { background: var(--accent); border-color: var(--accent); color: #FFFFFF; transform: translateY(-1px); }
 .pub-btn:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
 .pub-btn::before { content: ""; position: absolute; inset: -9px; }
 .pub-btn { position: relative; }
