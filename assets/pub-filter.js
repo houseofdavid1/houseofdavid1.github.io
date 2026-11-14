@@ -34,18 +34,32 @@
     }
   }
 
+  var order = [];  // selection order, oldest first
+  function count(keys) {
+    return items.filter(function (li) {
+      var tags = (li.getAttribute('data-tags') || '').split(' ');
+      return keys.every(function (k) { return tags.indexOf(k) !== -1; });
+    }).length;
+  }
   chips.forEach(function (c) {
     c.addEventListener('click', function () {
       var k = c.dataset.topic;
-      if (sel[k]) delete sel[k]; else sel[k] = true;
+      if (sel[k]) {
+        delete sel[k]; order = order.filter(function (x) { return x !== k; });
+      } else {
+        order.push(k);
+        // if the combination has no papers, release the oldest selections until something matches
+        while (order.length > 1 && !count(order)) order.shift();
+        sel = {}; order.forEach(function (x) { sel[x] = true; });
+      }
       apply(true);
     });
   });
-  clear.addEventListener('click', function () { sel = {}; apply(true); });
+  clear.addEventListener('click', function () { sel = {}; order = []; apply(true); });
 
   var m = /topics=([\w,]+)/.exec(location.hash);
   if (m) m[1].split(',').forEach(function (k) {
-    if (chips.some(function (c) { return c.dataset.topic === k; })) sel[k] = true;
+    if (chips.some(function (c) { return c.dataset.topic === k; })) { sel[k] = true; order.push(k); }
   });
   apply(false);
 })();
