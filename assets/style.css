@@ -154,6 +154,8 @@ a:hover { color: var(--accent-dark); }
 .pub-venue { display: block; font-size: 14px; color: var(--muted); }
 .pub-venue em { font-style: normal; font-weight: 700; color: var(--accent); }
 .pub-venue a { margin-left: 6px; font-weight: 500; text-decoration: none; }
+.pub-venue a { color: var(--coral-text); }
+.pub-venue a:hover { color: var(--coral); text-decoration: underline; }
 .year-head { margin: 48px 0 4px; font-size: 20px; color: var(--navy); }
 .year-head:first-of-type { margin-top: 8px; }
 .note { font-size: 14px; color: var(--muted); }
