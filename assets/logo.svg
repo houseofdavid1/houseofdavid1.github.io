@@ -4,11 +4,11 @@
 <path d="M2 8 L40 24 L2 40" fill="none" stroke="#F0603F" stroke-width="1.6" stroke-linejoin="round"/>
 <path d="M2 24 H40" stroke="#F0603F" stroke-width="3.2" stroke-linecap="round" filter="url(#g)"/>
 <path d="M2 24 H40" stroke="#F7957C" stroke-width="1.6" stroke-linecap="round"/>
-<g stroke="#6E9396" stroke-width="1.7" fill="none">
+<g stroke="#7F8DAE" stroke-width="1.7" fill="none">
 <path d="M40 24 L70 9 M40 24 L70 24 M40 24 L70 39"/>
 <path d="M70 9 L100 16 M70 9 L100 32 M70 24 L100 16 M70 24 L100 32 M70 39 L100 16 M70 39 L100 32"/>
 <path d="M100 16 L126 24 M100 32 L126 24"/></g>
-<g fill="#0E3B43"><circle cx="70" cy="9" r="4.2"/><circle cx="70" cy="24" r="4.2"/><circle cx="70" cy="39" r="4.2"/><circle cx="100" cy="16" r="4.2"/><circle cx="100" cy="32" r="4.2"/></g>
+<g fill="#1B2A4E"><circle cx="70" cy="9" r="4.2"/><circle cx="70" cy="24" r="4.2"/><circle cx="70" cy="39" r="4.2"/><circle cx="100" cy="16" r="4.2"/><circle cx="100" cy="32" r="4.2"/></g>
 <circle cx="126" cy="24" r="4.6" fill="#F0603F"/>
 <circle cx="40" cy="24" r="7" fill="#F0603F" fill-opacity="0.35" filter="url(#g)"/><circle cx="40" cy="24" r="3.6" fill="#FFFFFF" stroke="#F0603F" stroke-width="1.6"/>
 </svg>

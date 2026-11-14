@@ -1,20 +1,20 @@
 :root {
-  --navy: #0E3B43;
-  --navy-line: #285860;
-  --ink: #0F2A30;
-  --body: #3F5A5F;
-  --muted: #647D82;
+  --navy: #1B2A4E;
+  --navy-line: #34466E;
+  --ink: #17213A;
+  --body: #45506A;
+  --muted: #6C7690;
   --line: #DDE8E8;
   --soft: #EEF5F5;
-  --accent: #0F7C7A;
-  --accent-dark: #0A5F5D;
-  --accent-light: #5CC7C0;
-  --on-navy: #D2E6E6;
-  --on-navy-muted: #93B5B6;
+  --accent: #22407E;
+  --accent-dark: #172E5E;
+  --accent-light: #8FA8E0;
+  --on-navy: #D7DEEE;
+  --on-navy-muted: #9DABCB;
   --wrap: 1160px;
-  --accent-soft: #E3F3F2;
-  --accent-soft-line: #BDE3E0;
-  --accent-light-hover: #86D8D2;
+  --accent-soft: #E6ECF7;
+  --accent-soft-line: #C3D0EA;
+  --accent-light-hover: #AFC2EC;
   --neutral-soft: #E8F0F0;
   --neutral-line: #D1E0E0;
   --panel: #F4F9F9;
@@ -418,7 +418,7 @@ a.logo:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
 .page-hero .eyebrow, .hero .eyebrow { color: var(--accent); font-size: 13px; margin: 0 0 14px; }
 
 #alumni .table-box { background: #FFFFFF; }
-.members .member { box-shadow: 0 1px 2px rgba(15, 42, 48, 0.05), 0 10px 26px -14px rgba(15, 42, 48, 0.22); }
+.members .member { box-shadow: 0 1px 2px rgba(23, 33, 58, 0.05), 0 10px 26px -14px rgba(23, 33, 58, 0.22); }
 
 .chip-off {
   display: inline-flex; align-items: center; gap: 4px; margin-top: 6px; padding: 3px 10px; border-radius: 999px;
