@@ -413,7 +413,7 @@ a.logo:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
 
 /* Alumni publications popover */
 .pubs-box { margin-left: 6px; }
-.pubs-box summary { background: var(--neutral-soft); border-color: var(--neutral-line); color: var(--navy); }
+.pubs-box summary { background: var(--accent-soft); border-color: var(--accent-soft-line); color: var(--accent); }
 .pubs-box summary:hover { background: var(--navy); border-color: var(--navy); color: #FFFFFF; }
 .pubs-box .pc { font-weight: 700; opacity: 0.75; }
 .pubs-pop { width: min(620px, 86vw); max-height: 420px; overflow-y: auto; padding: 14px 18px 8px; }
@@ -436,5 +436,5 @@ a.logo:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
   font-size: 12px; font-weight: 700; color: var(--mint-dark); background: var(--mint-soft); border: 1px solid var(--mint-line);
   cursor: default; user-select: none; vertical-align: top;
 }
-.chip-off.pubs-off { background: var(--neutral-soft); border-color: var(--neutral-line); color: var(--navy); }
+.chip-off.pubs-off { background: var(--accent-soft); border-color: var(--accent-soft-line); color: var(--accent); }
 .pubs-off { margin-left: 6px; }
