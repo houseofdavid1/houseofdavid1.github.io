@@ -10,7 +10,7 @@
     var entry = data[btn.dataset.member];
     var n = entry ? entry.items.length : 0;
     if (!n) { btn.remove(); return; }
-    btn.querySelector('.pub-btn-count').textContent = n;
+    btn.querySelector('.pub-btn-count').textContent = 'View ' + n + (n === 1 ? ' paper' : ' papers');
     btn.setAttribute('aria-label', 'Publications of ' + entry.name + ' (' + n + ')');
     btn.addEventListener('click', function () {
       titleEl.textContent = entry.name;

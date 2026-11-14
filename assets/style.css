@@ -264,15 +264,17 @@ tr:last-child td { border-bottom: none; }
 .member h3.has-pubs { display: inline-flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
 .member-lead h3.has-pubs { justify-content: flex-start; }
 .pub-btn {
-  display: inline-flex; align-items: center; gap: 4px; height: 26px; padding: 0 9px 0 7px;
-  border: 1px solid #F3C9B1; border-radius: 999px; background: #FFFFFF; color: var(--accent);
-  font: inherit; font-size: 12px; font-weight: 700; line-height: 1; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 5px; height: 28px; padding: 0 9px 0 9px;
+  border: 1px solid var(--accent); border-radius: 999px; background: #FDF1EA; color: var(--accent-dark);
+  font: inherit; font-size: 12px; font-weight: 700; line-height: 1; cursor: pointer; white-space: nowrap;
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
 .pub-btn:hover, .pub-btn:focus-visible { background: var(--accent); border-color: var(--accent); color: #FFFFFF; transform: translateY(-1px); }
 .pub-btn:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
 .pub-btn::before { content: ""; position: absolute; inset: -9px; }
 .pub-btn { position: relative; }
+.pub-btn-chev { margin-left: -1px; transition: transform 0.15s ease; }
+.pub-btn:hover .pub-btn-chev { transform: translateX(2px); }
 body.dialog-open { overflow: hidden; }
 .pub-dialog {
   width: min(760px, calc(100vw - 32px)); max-height: min(80vh, 760px); padding: 0;
@@ -305,3 +307,11 @@ mark.me { background: #FDF1EA; color: var(--accent-dark); font-weight: 700; bord
   .pd-list.numbered li { padding-left: 34px; }
   .pd-list.numbered li::before { width: 26px; }
 }
+
+/* publications button sits at the bottom of each card */
+.member > .pub-btn {
+  margin-top: auto; width: 100%; height: 38px; justify-content: center; gap: 7px;
+  border-radius: 10px; font-size: 13px;
+}
+.member > .pub-btn:hover .pub-btn-chev, .member > .pub-btn:focus-visible .pub-btn-chev { transform: translateX(3px); }
+.member > .since { margin-bottom: 18px; }
