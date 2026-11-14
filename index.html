@@ -49,7 +49,6 @@
               <div class="jf"><b>지원 방법</b><span>이력서와 관심 연구 분야를 이메일로 보내주세요</span></div>
             </div>
             <div class="actions join-actions">
-              <a class="btn btn-primary js-mail" href="#" data-u="hski" data-d="unist.ac.kr">교수에게 연락하기</a>
               <a class="btn btn-ghost" href="people.html#alumni">졸업생 진로 보기</a>
             </div>
           </div>
@@ -113,7 +112,6 @@
   </div>
 </footer>
 
-<script>document.querySelectorAll(".js-mail").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();location.href="mai"+"lto:"+a.dataset.u+String.fromCharCode(64)+a.dataset.d;});});</script>
 <script>(function(){var b=document.querySelector('.join-toggle'),w=document.getElementById('join');if(!b||!w)return;function set(o){w.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');}b.addEventListener('click',function(){set(!w.classList.contains('open'));});if(location.hash==='#join')set(true);})();</script>
 </body>
 </html>
