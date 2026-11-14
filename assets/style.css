@@ -367,7 +367,7 @@ a.logo { transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0
 a.logo:hover { border-color: var(--coral); box-shadow: 0 4px 12px -6px rgba(19,35,58,0.3); transform: translateY(-1px); }
 a.logo:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
 
-.brand-logo { width: auto; height: 44px; flex: 0 0 auto; display: block; }
+.brand-logo { width: auto; height: 52px; flex: 0 0 auto; display: block; }
 .brand { gap: 16px; }
 .brand-text { border-left: 1px solid var(--line); padding-left: 16px; }
 
@@ -438,3 +438,5 @@ a.logo:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
 }
 .chip-off.pubs-off { background: var(--accent-soft); border-color: var(--accent-soft-line); color: var(--accent); }
 .pubs-off { margin-left: 6px; }
+
+@media (max-width: 640px) { .brand-logo { height: 38px; } .brand { gap: 10px; } }

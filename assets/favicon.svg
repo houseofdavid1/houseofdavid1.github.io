@@ -1,9 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-  <rect width="48" height="48" rx="11" fill="#FFFFFF"/>
-  <path d="M3 11 L3 37 L19 24 Z" fill="#F0603F" fill-opacity="0.18"/>
-  <path d="M3 11 L19 24 L3 37" fill="none" stroke="#F0603F" stroke-width="2.4" stroke-linejoin="round"/>
-  <g stroke="#7F8DAE" stroke-width="2.2" fill="none"><path d="M19 24 L32 12 M19 24 L32 24 M19 24 L32 36 M32 12 L44 24 M32 24 L44 24 M32 36 L44 24"/></g>
-  <g fill="#1B2A4E"><circle cx="32" cy="12" r="4"/><circle cx="32" cy="24" r="4"/><circle cx="32" cy="36" r="4"/></g>
-  <circle cx="44" cy="24" r="3.6" fill="#F0603F"/>
-  <circle cx="19" cy="24" r="4" fill="#FFFFFF" stroke="#F0603F" stroke-width="2.4"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<defs><filter id="b" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="2.2"/></filter>
+<linearGradient id="c" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFC21A" stop-opacity="0.3"/><stop offset="1" stop-color="#FF9A1F" stop-opacity="0.95"/></linearGradient>
+<linearGradient id="ng" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E8321E"/><stop offset="0.5" stop-color="#6C4CF5"/><stop offset="1" stop-color="#1EC8E6"/></linearGradient></defs>
+<rect width="64" height="64" rx="14" fill="#14213D"/>
+<path d="M4 10 L50 32 L4 54 Z" fill="url(#c)"/>
+<path d="M13 17 L31 25 M13 17 L31 39 M13 32 L31 25 M13 32 L31 39 M13 47 L31 25 M13 47 L31 39" stroke="url(#ng)" stroke-width="2"/>
+<g fill="#fff" stroke="#14213D" stroke-width="1.6"><circle cx="13" cy="17" r="3.6"/><circle cx="13" cy="32" r="3.6"/><circle cx="13" cy="47" r="3.6"/><circle cx="31" cy="25" r="3.6"/><circle cx="31" cy="39" r="3.6"/></g>
+<circle cx="50" cy="32" r="10" fill="#E5301C" fill-opacity="0.5" filter="url(#b)"/><circle cx="50" cy="32" r="6.5" fill="#E5301C"/><circle cx="50" cy="32" r="2.4" fill="#fff"/>
 </svg>
