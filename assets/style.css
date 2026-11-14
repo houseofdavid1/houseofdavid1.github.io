@@ -12,6 +12,14 @@
   --on-navy: #D5DCE6;
   --on-navy-muted: #A9B4C4;
   --wrap: 1160px;
+  --accent-soft: #FDF1EA;
+  --accent-soft-line: #F6D2BE;
+  --accent-light-hover: #FBB98F;
+  --neutral-soft: #EEF2F7;
+  --neutral-line: #D9E1EC;
+  --panel: #F6F8FB;
+  --panel-line: #E6EBF2;
+  --placeholder: #DDE2E8;
 }
 
 * { box-sizing: border-box; }
@@ -86,7 +94,7 @@ a:hover { color: var(--accent-dark); }
 .btn-primary { background: var(--accent); color: #FFFFFF; }
 .btn-primary:hover { background: var(--accent-dark); color: #FFFFFF; }
 .btn-light { background: var(--accent-light); color: var(--navy); font-weight: 700; }
-.btn-light:hover { background: #FBB98F; color: var(--navy); }
+.btn-light:hover { background: var(--accent-light-hover); color: var(--navy); }
 .btn-ghost { border-color: var(--on-navy-muted); color: #FFFFFF; }
 .btn-ghost:hover { background: rgba(255,255,255,0.08); color: #FFFFFF; }
 
@@ -97,7 +105,7 @@ a:hover { color: var(--accent-dark); }
 .section .lead { font-size: 16px; color: var(--body); max-width: 760px; margin: 0 0 12px; }
 .split { display: flex; flex-wrap: wrap; gap: 48px; align-items: center; }
 .split > * { flex: 1 1 420px; min-width: 0; }
-.figure { border-radius: 10px; overflow: hidden; background: #DDE2E8; }
+.figure { border-radius: 10px; overflow: hidden; background: var(--placeholder); }
 .figure img { width: 100%; height: auto; }
 
 .more { font-size: 14px; font-weight: 500; text-decoration: none; }
@@ -145,7 +153,7 @@ a:hover { color: var(--accent-dark); }
 
 /* People */
 .prof { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; }
-.prof-photo { flex: 0 0 170px; border-radius: 10px; overflow: hidden; background: #DDE2E8; }
+.prof-photo { flex: 0 0 170px; border-radius: 10px; overflow: hidden; background: var(--placeholder); }
 .prof-body { flex: 1 1 420px; min-width: 0; }
 .prof-body h3 { margin: 0 0 4px; font-size: 24px; color: var(--navy); }
 .prof-body .role { margin: 0 0 18px; color: var(--accent); font-weight: 500; }
@@ -195,7 +203,7 @@ a:hover { color: var(--accent-dark); }
 .member:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(19, 35, 58, 0.05), 0 18px 36px -14px rgba(19, 35, 58, 0.22); }
 .member .photo {
   width: 100%; max-width: 180px; margin: 4px auto 18px;
-  aspect-ratio: 4 / 5; border-radius: 12px; overflow: hidden; background: #DDE2E8;
+  aspect-ratio: 4 / 5; border-radius: 12px; overflow: hidden; background: var(--placeholder);
   box-shadow: 0 0 0 4px #FFFFFF, 0 0 0 5px var(--line);
   display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 32px; font-weight: 700;
 }
@@ -203,7 +211,7 @@ a:hover { color: var(--accent-dark); }
 .member h3 { margin: 0; font-size: 17px; color: var(--navy); letter-spacing: 0.01em; }
 .member h3 + p {
   margin: 6px 0 0; display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: 0.02em; white-space: nowrap;
-  color: var(--accent); background: #FDF1EA; border-radius: 999px; padding: 3px 12px;
+  color: var(--accent); background: var(--accent-soft); border-radius: 999px; padding: 3px 12px;
 }
 .member-lead { grid-column: span 2; flex-direction: row; align-items: flex-start; gap: 22px; text-align: left; }
 .member-lead::before { background: var(--navy); }
@@ -265,7 +273,7 @@ tr:last-child td { border-bottom: none; }
 .member-lead h3.has-pubs { justify-content: flex-start; }
 .pub-btn {
   display: inline-flex; align-items: center; gap: 5px; height: 28px; padding: 0 9px 0 9px;
-  border: 1px solid var(--accent); border-radius: 999px; background: #FDF1EA; color: var(--accent-dark);
+  border: 1px solid var(--accent); border-radius: 999px; background: var(--accent-soft); color: var(--accent-dark);
   font: inherit; font-size: 12px; font-weight: 700; line-height: 1; cursor: pointer; white-space: nowrap;
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
@@ -300,7 +308,7 @@ body.dialog-open { overflow: hidden; }
 .pd-list { margin: 0 !important; padding: 4px 28px 20px; overflow-y: auto; }
 .pd-list li:first-child { border-top: none; }
 .pd-list li:last-child { border-bottom: none; }
-mark.me { background: #FDF1EA; color: var(--accent-dark); font-weight: 700; border-radius: 4px; padding: 0 3px; }
+mark.me { background: var(--accent-soft); color: var(--accent-dark); font-weight: 700; border-radius: 4px; padding: 0 3px; }
 @media (max-width: 640px) {
   .pd-head { padding: 20px 18px 14px; }
   .pd-list { padding: 0 18px 16px; }
@@ -322,7 +330,7 @@ td.pos { line-height: 1.4; }
 .pos-ko { display: block; margin-top: 2px; font-size: 13px; color: var(--muted); letter-spacing: -0.01em; }
 .mil {
   display: inline-block; margin-top: 6px; padding: 2px 9px; border-radius: 999px;
-  font-size: 11.5px; font-weight: 500; color: var(--navy); background: #EEF2F7; border: 1px solid #D9E1EC;
+  font-size: 11.5px; font-weight: 500; color: var(--navy); background: var(--neutral-soft); border: 1px solid var(--neutral-line);
 }
 
 .pos-note { font-weight: 400; color: var(--muted); font-size: 13px; }
@@ -351,7 +359,7 @@ a.logo:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
 /* Alumni thesis boxes */
 .thesis {
   margin-top: 8px; padding: 8px 12px 9px; border-radius: 10px;
-  background: #F6F8FB; border: 1px solid #E6EBF2;
+  background: var(--panel); border: 1px solid var(--panel-line);
 }
 .thesis-label { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 2px; }
 .thesis-title { display: block; font-size: 13px; line-height: 1.45; color: var(--ink); }
@@ -361,7 +369,7 @@ a.logo:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
 .thesis-box summary {
   display: inline-flex; align-items: center; gap: 4px; list-style: none; cursor: pointer;
   font-size: 12px; font-weight: 700; color: var(--accent); padding: 3px 10px; border-radius: 999px;
-  background: #FDF1EA; border: 1px solid #F6D2BE; user-select: none;
+  background: var(--accent-soft); border: 1px solid var(--accent-soft-line); user-select: none;
   transition: background 0.15s ease, color 0.15s ease;
 }
 .thesis-box summary::-webkit-details-marker { display: none; }
@@ -390,7 +398,7 @@ a.logo:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
 
 /* Alumni publications popover */
 .pubs-box { margin-left: 6px; }
-.pubs-box summary { background: #EEF2F7; border-color: #D9E1EC; color: var(--navy); }
+.pubs-box summary { background: var(--neutral-soft); border-color: var(--neutral-line); color: var(--navy); }
 .pubs-box summary:hover { background: var(--navy); border-color: var(--navy); color: #FFFFFF; }
 .pubs-box .pc { font-weight: 700; opacity: 0.75; }
 .pubs-pop { width: min(620px, 86vw); max-height: 420px; overflow-y: auto; padding: 14px 18px 8px; }
