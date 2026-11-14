@@ -182,8 +182,8 @@ a:hover { color: var(--accent-dark); }
 
 
 .bio { text-align: left; color: var(--body); }
-.bio a { text-decoration: none; }
-.bio a:hover { text-decoration: underline; }
+.bio a { text-decoration: none; color: var(--coral-text); }
+.bio a:hover { text-decoration: underline; color: var(--coral); }
 .bio-label {
   margin: 0 0 8px !important; font-size: 11px !important; font-weight: 700; letter-spacing: 0.12em;
   text-transform: uppercase; color: var(--mint) !important;
