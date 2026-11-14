@@ -359,3 +359,18 @@ a.logo:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
 #alumni th:nth-child(1) { width: 13%; }
 #alumni th:nth-child(2) { width: 39%; }
 #alumni th:nth-child(3) { width: 48%; }
+
+/* Collapsible thesis */
+.thesis-box { margin-top: 6px; }
+.thesis-box summary {
+  display: inline-flex; align-items: center; gap: 4px; list-style: none; cursor: pointer;
+  font-size: 12px; font-weight: 700; color: var(--accent); padding: 3px 10px; border-radius: 999px;
+  background: #FDF1EA; border: 1px solid #F6D2BE; user-select: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.thesis-box summary::-webkit-details-marker { display: none; }
+.thesis-box summary:hover { background: var(--accent); color: #FFFFFF; border-color: var(--accent); }
+.thesis-box summary:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+.th-chev { transition: transform 0.2s ease; }
+.thesis-box[open] .th-chev { transform: rotate(180deg); }
+.thesis-box[open] summary { margin-bottom: 2px; }
