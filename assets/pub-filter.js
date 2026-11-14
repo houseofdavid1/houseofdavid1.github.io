@@ -2,9 +2,9 @@
   var box = document.querySelector('.topic-filter');
   var list = document.getElementById('pub-main');
   if (!box || !list) return;
-  var chips = Array.prototype.slice.call(box.querySelectorAll('.topic-chip'));
+  var chips = Array.prototype.slice.call(box.querySelectorAll('.topic-chip:not(.tc-all)'));
   var items = Array.prototype.slice.call(list.children);
-  var clear = box.querySelector('.tf-clear');
+  var clear = box.querySelector('.tc-all');
   var empty = box.querySelector('.tf-empty');
   var sel = {};
 
@@ -25,7 +25,7 @@
       c.classList.toggle('is-on', on);
       c.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
-    clear.hidden = !keys.length;
+    clear.classList.toggle('is-on', !keys.length); clear.setAttribute('aria-pressed', keys.length ? 'false' : 'true');
     empty.hidden = shown > 0;
     box.classList.toggle('has-sel', keys.length > 0);
     if (push) {
