@@ -324,3 +324,5 @@ td.pos { line-height: 1.4; }
   display: inline-block; margin-top: 6px; padding: 2px 9px; border-radius: 999px;
   font-size: 11.5px; font-weight: 500; color: var(--navy); background: #EEF2F7; border: 1px solid #D9E1EC;
 }
+
+.pos-note { font-weight: 400; color: var(--muted); font-size: 13px; }
