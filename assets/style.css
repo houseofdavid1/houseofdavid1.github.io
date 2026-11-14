@@ -315,3 +315,12 @@ mark.me { background: #FDF1EA; color: var(--accent-dark); font-weight: 700; bord
 }
 .member > .pub-btn:hover .pub-btn-chev, .member > .pub-btn:focus-visible .pub-btn-chev { transform: translateX(3px); }
 .member > .since { margin-bottom: 18px; }
+
+/* Alumni current position: English over Korean */
+td.pos { line-height: 1.4; }
+.pos-en { display: block; color: var(--ink); font-weight: 500; }
+.pos-ko { display: block; margin-top: 2px; font-size: 13px; color: var(--muted); letter-spacing: -0.01em; }
+.mil {
+  display: inline-block; margin-top: 6px; padding: 2px 9px; border-radius: 999px;
+  font-size: 11.5px; font-weight: 500; color: var(--navy); background: #EEF2F7; border: 1px solid #D9E1EC;
+}
