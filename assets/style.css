@@ -352,8 +352,10 @@ a.logo:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
 .deg-line { white-space: nowrap; }
 .thesis {
   margin-top: 8px; padding: 8px 12px 9px; border-radius: 10px;
-  background: #F6F8FB; border: 1px solid #E6EBF2; max-width: 440px;
+  background: #F6F8FB; border: 1px solid #E6EBF2;
 }
 .thesis-label { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 2px; }
 .thesis-title { display: block; font-size: 13px; line-height: 1.45; color: var(--ink); }
-#alumni th:nth-child(2) { width: 46%; }
+#alumni th:nth-child(1) { width: 13%; }
+#alumni th:nth-child(2) { width: 39%; }
+#alumni th:nth-child(3) { width: 48%; }
