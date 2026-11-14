@@ -339,3 +339,7 @@ td.pos { line-height: 1.4; }
 .pos-text { min-width: 0; }
 
 .pd-legend { margin: 8px 0 0; font-size: 12px; color: var(--muted); }
+
+a.logo { transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease; }
+a.logo:hover { border-color: var(--accent); box-shadow: 0 4px 12px -6px rgba(19,35,58,0.3); transform: translateY(-1px); }
+a.logo:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
