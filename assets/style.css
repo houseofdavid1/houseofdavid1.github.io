@@ -344,4 +344,4 @@ a.logo { transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0
 a.logo:hover { border-color: var(--accent); box-shadow: 0 4px 12px -6px rgba(19,35,58,0.3); transform: translateY(-1px); }
 a.logo:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
 
-.brand-logo { width: 40px; height: 40px; flex: 0 0 auto; display: block; }
+.brand-logo { width: 52px; height: 52px; flex: 0 0 auto; display: block; }
