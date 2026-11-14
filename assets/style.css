@@ -475,3 +475,6 @@ a.logo:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
 #pub-main li.tf-in { animation: tfIn .28s ease both; }
 @keyframes tfIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 @media (max-width: 640px) { .topic-filter { padding: 14px; } .topic-chip { font-size: 13px; padding: 8px 12px; } }
+.pubs-section { padding-top: 32px; }
+.pubs-section .topic-filter { margin-top: 0; }
+.pubs-section .note { margin: 12px 0 0; font-size: 13px; text-align: right; }
