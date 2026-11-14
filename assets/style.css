@@ -451,3 +451,27 @@ a.logo:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
 .member .em-line.em-left { justify-content: flex-start; margin-top: 8px; }
 .name-ko { margin-left: 6px; font-size: 0.82em; font-weight: 500; color: var(--muted); letter-spacing: 0; }
 @media (max-width: 640px) { .brand-text strong { font-size: 16px; } .brand-text span { font-size: 12px; margin-top: 2px; } }
+
+/* Publications: topic filter */
+.topic-filter { margin: 22px 0 8px; padding: 18px 20px 16px; background: var(--panel); border: 1px solid var(--panel-line); border-radius: 14px; }
+.tf-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.tf-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--coral-text); }
+.tf-clear { border: 0; background: none; padding: 2px 4px; font: inherit; font-size: 13px; font-weight: 500; color: var(--accent); cursor: pointer; }
+.tf-clear:hover { text-decoration: underline; }
+.tf-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.topic-chip {
+  font: inherit; font-size: 13.5px; font-weight: 500; line-height: 1; cursor: pointer;
+  padding: 9px 14px; border-radius: 999px; border: 1px solid var(--accent-soft-line);
+  background: #FFFFFF; color: var(--accent);
+  transition: background .18s, color .18s, border-color .18s, box-shadow .18s, transform .12s;
+}
+.topic-chip:hover { border-color: var(--accent); box-shadow: 0 2px 8px rgba(23, 33, 58, 0.08); }
+.topic-chip:active { transform: scale(0.97); }
+.topic-chip.is-on { background: var(--accent); border-color: var(--accent); color: #FFFFFF; box-shadow: 0 3px 10px rgba(34, 64, 126, 0.25); }
+.topic-chip.is-on::before { content: "✓"; margin-right: 6px; font-size: 12px; }
+.tf-empty { margin: 14px 0 0; font-size: 14px; color: var(--muted); }
+#pub-main li::before { content: attr(data-n) "."; }
+#pub-main li[hidden] { display: none; }
+#pub-main li.tf-in { animation: tfIn .28s ease both; }
+@keyframes tfIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@media (max-width: 640px) { .topic-filter { padding: 14px; } .topic-chip { font-size: 13px; padding: 8px 12px; } }
