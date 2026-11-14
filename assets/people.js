@@ -10,11 +10,11 @@
     var entry = data[btn.dataset.member];
     var n = entry ? entry.items.length : 0;
     if (!n) { btn.remove(); return; }
-    btn.querySelector('.pub-btn-count').textContent = 'View ' + n + (n === 1 ? ' paper' : ' papers');
-    btn.setAttribute('aria-label', 'Publications of ' + entry.name + ' (' + n + ')');
+    btn.querySelector('.pub-btn-count').textContent = 'Publications';
+    btn.setAttribute('aria-label', 'Publications of ' + entry.name);
     btn.addEventListener('click', function () {
       titleEl.textContent = entry.name;
-      countEl.textContent = n + (n === 1 ? ' paper' : ' papers');
+      countEl.textContent = '';
       listEl.innerHTML = entry.items.map(function (li) { return '<li>' + li + '</li>'; }).join('');
       listEl.scrollTop = 0;
       if (typeof dialog.showModal === 'function') dialog.showModal(); else dialog.setAttribute('open', '');
