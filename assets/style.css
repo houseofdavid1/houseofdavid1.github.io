@@ -1011,3 +1011,10 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
 #sim-magnetic .rm-row .rm-thumb .rm-frame { aspect-ratio: 536 / 1076 !important; border-radius: 16px; box-shadow: 0 14px 34px rgba(23,33,58,0.14); padding: 0; }
 #sim-magnetic .rm-thumb figcaption { font-size: 13px; line-height: 1.55; margin-top: 9px; padding-left: 12px; border-left: 3px solid var(--c); color: var(--body); }
 @media (max-width: 600px) { #sim-magnetic .rb-media { grid-template-columns: minmax(0, 778fr) minmax(0, 536fr); gap: 12px; } }
+/* magnetic block v2: small paired videos in the right column */
+#panel-sim #sim-magnetic .rb-body { grid-template-columns: minmax(0, 1fr) minmax(0, 380px); }
+#sim-magnetic .rb-media { grid-template-columns: minmax(0, 488fr) minmax(0, 364fr); gap: 12px; max-width: 380px; margin: 0; }
+#sim-magnetic .rm-row .rm-thumb .rm-frame { aspect-ratio: 364 / 1052 !important; border-radius: 12px; box-shadow: 0 8px 20px rgba(23,33,58,0.12); }
+#sim-magnetic .rm-main .rm-frame { border-radius: 12px; box-shadow: 0 8px 20px rgba(23,33,58,0.12); }
+#sim-magnetic figcaption { font-size: 12px !important; line-height: 1.45 !important; }
+@media (max-width: 900px) { #panel-sim #sim-magnetic .rb-body { grid-template-columns: 1fr; } #sim-magnetic .rb-media { max-width: 420px; margin-inline: auto; } }
