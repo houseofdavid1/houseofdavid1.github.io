@@ -577,3 +577,22 @@ a.nw-row:hover .nw-go { color: var(--coral); transform: translate(2px, -2px); }
 .news-all:hover { color: var(--coral); text-decoration: underline; }
 .nd-list { margin: 0; padding: 4px 22px 18px; overflow-y: auto; border-top: 0; }
 .nd-list li:last-child { border-bottom: 0; }
+/* Home: research areas band (navy) */
+.topics-band { position: relative; background: linear-gradient(120deg, #17213A 0%, #1F2F57 55%, #213E6E 100%); overflow: hidden; }
+.topics-band::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(600px 220px at 88% 0%, rgba(255, 106, 31, 0.18), transparent 70%),
+              radial-gradient(520px 200px at 8% 100%, rgba(30, 200, 230, 0.14), transparent 70%); }
+.topics-band .wrap { position: relative; padding-top: 30px; padding-bottom: 36px; }
+.topics-band .ht-head { margin-top: 0; padding-top: 0; border-top: 0; }
+.topics-band .ht-label { color: #FFFFFF; }
+.topics-band .ht-label-en { color: #FF9B7A; }
+.topics-band .ht-all { color: #C9D6F2; }
+.topics-band .ht-all:hover { color: #FFFFFF; }
+.topics-band .ht-card { background: rgba(255, 255, 255, 0.07); border-color: rgba(255, 255, 255, 0.12); box-shadow: none; backdrop-filter: blur(6px); }
+.topics-band .ht-card:hover { background: rgba(255, 255, 255, 0.13); border-color: rgba(255, 255, 255, 0.22); box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25); }
+.topics-band .ht-title { color: #FFFFFF; }
+.topics-band .ht-sub { color: #AEBBD8; }
+.topics-band .ht-arrow { color: #8FA0C4; }
+.topics-band .ht-mint  { --ht: #4FD1C5; --ht-soft: rgba(79, 209, 197, 0.16); }
+.topics-band .ht-navy  { --ht: #8FA8FF; --ht-soft: rgba(143, 168, 255, 0.18); }
+.topics-band .ht-coral { --ht: #FF8A65; --ht-soft: rgba(255, 138, 101, 0.18); }
