@@ -9,17 +9,31 @@ window.LAB_NEWS = [
   { date: "2025.10", tag: "논문", text: "연구실 논문 “AI-based real-time prediction of cross-sectional phase distribution during laser heat treatment”이 Materials & Design에 게재되었습니다.", link: "https://doi.org/10.1016/j.matdes.2025.114546" }
 ];
 (function () {
-  var box = document.getElementById('news-list');
-  if (!box) return;
   function key(d) { var p = String(d).split('.'); return (+p[0]) * 10000 + (+(p[1] || 0)) * 100 + (+(p[2] || 0)); }
-  var items = (window.LAB_NEWS || []).slice().sort(function (a, b) { return key(b.date) - key(a.date); }).slice(0, 5);
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
-  box.innerHTML = items.map(function (n) {
-    var inner = '<span class="nw-date">' + esc(n.date) + '</span>' +
-      '<span class="nw-tag">' + esc(n.tag || '소식') + '</span>' +
-      '<span class="nw-text">' + esc(n.text) + '</span>' +
-      (n.link ? '<span class="nw-go" aria-hidden="true">↗</span>' : '');
-    return n.link ? '<li><a class="nw-row" href="' + esc(n.link) + '" target="_blank" rel="noopener">' + inner + '</a></li>'
-                  : '<li><div class="nw-row">' + inner + '</div></li>';
-  }).join('');
+  var all = (window.LAB_NEWS || []).slice().sort(function (a, b) { return key(b.date) - key(a.date); });
+  function rows(items) {
+    return items.map(function (n) {
+      var inner = '<span class="nw-date">' + esc(n.date) + '</span>' +
+        '<span class="nw-tag">' + esc(n.tag || '소식') + '</span>' +
+        '<span class="nw-text">' + esc(n.text) + '</span>' +
+        (n.link ? '<span class="nw-go" aria-hidden="true">↗</span>' : '<span></span>');
+      return n.link ? '<li><a class="nw-row" href="' + esc(n.link) + '" target="_blank" rel="noopener">' + inner + '</a></li>'
+                    : '<li><div class="nw-row">' + inner + '</div></li>';
+    }).join('');
+  }
+  var box = document.getElementById('news-list');
+  if (box) box.innerHTML = rows(all.slice(0, 5));
+  var btn = document.getElementById('news-all'), dlg = document.getElementById('news-dialog');
+  if (!btn || !dlg) return;
+  var full = document.getElementById('news-full'), cnt = document.getElementById('nd-count');
+  btn.addEventListener('click', function () {
+    full.innerHTML = rows(all); cnt.textContent = '총 ' + all.length + '건'; full.scrollTop = 0;
+    if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+    document.body.classList.add('dialog-open');
+  });
+  function close() { if (typeof dlg.close === 'function') dlg.close(); else dlg.removeAttribute('open'); }
+  dlg.querySelector('.pd-close').addEventListener('click', close);
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) close(); });
+  dlg.addEventListener('close', function () { document.body.classList.remove('dialog-open'); });
 })();

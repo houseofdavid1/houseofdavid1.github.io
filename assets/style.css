@@ -571,3 +571,9 @@ a.nw-row:hover .nw-go { color: var(--coral); transform: translate(2px, -2px); }
 .ht-all { margin-left: auto; font-size: 14px; font-weight: 500; color: var(--accent); text-decoration: none; }
 .ht-all:hover { color: var(--coral); text-decoration: underline; }
 @media (max-width: 960px) { .ht-head { margin-top: 32px; } .hero-topics { margin-top: 12px; } }
+.news-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px; }
+.news-section .news-head h2 { margin: 0; }
+.news-all { border: 0; background: none; padding: 0; font: inherit; font-size: 14px; font-weight: 500; color: var(--accent); cursor: pointer; }
+.news-all:hover { color: var(--coral); text-decoration: underline; }
+.nd-list { margin: 0; padding: 4px 22px 18px; overflow-y: auto; border-top: 0; }
+.nd-list li:last-child { border-bottom: 0; }
