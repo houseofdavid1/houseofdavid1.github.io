@@ -6,7 +6,9 @@
   var sw = Math.min(screen.width || DESK, screen.height || DESK);
   var small = sw < 900;
   var mode = 'mobile';
-  try { if (localStorage.getItem(KEY) === 'desktop') mode = 'desktop'; } catch (e) {}
+  // The desktop choice lasts for this visit only (sessionStorage): every new visit starts in the mobile layout.
+  try { localStorage.removeItem(KEY); } catch (e) {}          // drop the old, permanent preference
+  try { if (sessionStorage.getItem(KEY) === 'desktop') mode = 'desktop'; } catch (e) {}
   if (!small) mode = 'mobile';                       // large screens: plain responsive layout
   // The viewport meta is written here (not in the HTML) so the browser sees the right width AND zoom on first layout.
   // Desktop layout on a phone: give an explicit zoom so the full 1280px page fits edge to edge.
@@ -26,7 +28,7 @@
 
   // Switch by a fresh navigation (not reload): a reload keeps the old zoom level, so the desktop page would stay zoomed in.
   function set(m) {
-    try { localStorage.setItem(KEY, m); } catch (e) {}
+    try { sessionStorage.setItem(KEY, m); } catch (e) {}
     var u = location.pathname + '?view=' + m + location.hash;
     location.replace(u);
   }
