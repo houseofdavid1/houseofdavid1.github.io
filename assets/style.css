@@ -625,3 +625,20 @@ a.nw-row:hover .nw-go { color: var(--coral); transform: translate(2px, -2px); }
 @media (max-width: 640px) { .site-footer .copy { font-size: 12px; line-height: 1.8; } }
 .h-ko { display: block; margin-top: 4px; font-size: 0.6em; font-weight: 500; color: var(--muted); letter-spacing: 0; }
 h3 .h-ko { font-size: 14px; margin-top: 3px; }
+
+/* Research topics: alternating three-color cards */
+.topics-sec .topic { position: relative; display: block; margin-top: 18px; padding: 26px 30px 24px 34px; border: 1px solid var(--tp-line); border-radius: 18px;
+  background: linear-gradient(135deg, var(--tp-bg) 0%, #FFFFFF 70%); overflow: hidden; transition: transform .2s ease, box-shadow .2s ease; }
+.topics-sec .topic:last-child { border-bottom: 1px solid var(--tp-line); }
+.topics-sec .topic::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--tp); }
+.topics-sec .topic::after { content: counter(tp, decimal-leading-zero); counter-increment: tp; position: absolute; right: 24px; top: 14px;
+  font-size: 46px; font-weight: 800; letter-spacing: -0.02em; color: var(--tp); opacity: 0.10; line-height: 1; }
+.topics-sec .wrap { counter-reset: tp; }
+.topics-sec .topic:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(23, 33, 58, 0.08); }
+.topics-sec .topic-body h3 { padding-right: 70px; }
+.topics-sec .topic-body h3 .h-ko { color: var(--tp); font-weight: 600; }
+.topics-sec .tags span { background: #FFFFFF; border-color: var(--tp-line); color: var(--tp); font-weight: 500; }
+.topics-sec .topic:nth-of-type(3n+1) { --tp: var(--mint);   --tp-bg: var(--mint-soft);   --tp-line: var(--mint-line); }
+.topics-sec .topic:nth-of-type(3n+2) { --tp: var(--accent); --tp-bg: var(--accent-soft); --tp-line: var(--accent-soft-line); }
+.topics-sec .topic:nth-of-type(3n)   { --tp: var(--coral-text); --tp-bg: var(--coral-soft); --tp-line: #F6C9B8; }
+@media (max-width: 640px) { .topics-sec .topic { padding: 22px 20px 20px 24px; } .topics-sec .topic::after { font-size: 34px; } }
