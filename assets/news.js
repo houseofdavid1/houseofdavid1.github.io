@@ -12,6 +12,7 @@ window.LAB_NEWS = [
   { date: "2025.10", tag: "논문", text: "{{손명균}} 박사의 논문 “AI-based real-time prediction of cross-sectional phase distribution during laser heat treatment”이 [[Materials & Design]]에 게재되었습니다.", link: "https://doi.org/10.1016/j.matdes.2025.114546" }
 ];
 (function () {
+  var TAGC = { '논문': 'paper', '학위': 'degree', '졸업': 'degree', '입학': 'join', '진로': 'career', '수상': 'award', '학회': 'conf', '소식': 'news' };
   function key(d) { var p = String(d).split('.'); return (+p[0]) * 10000 + (+(p[1] || 0)) * 100 + (+(p[2] || 0)); }
   function fmt(s) { return esc(s).replace(/\{\{(.+?)\}\}/g, '<b class="nw-name">$1</b>').replace(/\[\[(.+?)\]\]/g, '<i class="nw-jr">$1</i>'); }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -19,7 +20,7 @@ window.LAB_NEWS = [
   function rows(items) {
     return items.map(function (n) {
       var inner = '<span class="nw-date">' + esc(n.date) + '</span>' +
-        '<span class="nw-tag">' + esc(n.tag || '소식') + '</span>' +
+        '<span class="nw-tag t-' + (TAGC[n.tag] || 'news') + '">' + esc(n.tag || '소식') + '</span>' +
         '<span class="nw-text">' + fmt(n.text) + '</span>' +
         (n.link ? '<span class="nw-go" aria-hidden="true">↗</span>' : '<span></span>');
       return n.link ? '<li><a class="nw-row" href="' + esc(n.link) + '" target="_blank" rel="noopener">' + inner + '</a></li>'

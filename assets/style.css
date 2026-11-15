@@ -915,3 +915,13 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
 }
 .hero-copy h1, .hero .hero-lead, .hero-about p, .hero .ha-title { word-break: keep-all; overflow-wrap: break-word; }
 .nowrap { white-space: nowrap; }
+
+/* News tags: one colour per category */
+.nw-tag { border: 1px solid transparent; }
+.nw-tag.t-paper  { color: #2A4A8C; background: #E6ECF7; border-color: #D3DDEF; }   /* 논문 */
+.nw-tag.t-degree { color: #B8432A; background: #FCEDE7; border-color: #F6D9CE; }   /* 학위·졸업 */
+.nw-tag.t-join   { color: #0B6B69; background: #E3F3F2; border-color: #C9E7E5; }   /* 입학 */
+.nw-tag.t-career { color: #6A3FB0; background: #F0EAFB; border-color: #E0D5F6; }   /* 진로 */
+.nw-tag.t-award  { color: #8A5A00; background: #FFF3D6; border-color: #F6E3B3; }   /* 수상 */
+.nw-tag.t-conf   { color: #1C6E9E; background: #E3F1FA; border-color: #CBE4F3; }   /* 학회 */
+.nw-tag.t-news   { color: #4B5568; background: #EEF0F4; border-color: #E0E3EA; }   /* 소식 */
