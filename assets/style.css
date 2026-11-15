@@ -905,9 +905,9 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
 /* Home hero: manufacturing AX message */
 .hero .eyebrow .ax-tag { display: inline-block; margin-right: 10px; padding: 3px 9px; border-radius: 6px; background: var(--coral); color: #FFFFFF; font-size: 12px; letter-spacing: .04em; vertical-align: 1px; }
 .hero-copy h1 .h1-em { color: var(--accent); background: linear-gradient(transparent 62%, rgba(228,87,46,.22) 62%); padding: 0 2px; }
-.hero .hero-lead { margin: 0; font-size: 17px; line-height: 1.8; color: var(--ink); max-width: 640px; }
-.hero .hero-lead b { color: var(--coral-text); }
-.hero .hero-en { margin: 10px 0 0; font-size: 14.5px; font-style: italic; color: var(--muted); }
+.hero .hero-lead { margin: 0; font-size: 16.5px; line-height: 1.8; color: var(--ink); font-weight: 500; max-width: 640px; }
+.hero .hero-lead b { color: var(--navy); font-weight: 700; }
+.hero .hero-en { margin: 10px 0 0; font-size: 15.5px; line-height: 1.75; color: var(--body); }
 @media (max-width: 760px) {
   .hero .eyebrow .ax-tag { font-size: 11px; padding: 2px 7px; margin-right: 6px; }
   .hero .hero-lead { font-size: 15.5px; line-height: 1.75; }
