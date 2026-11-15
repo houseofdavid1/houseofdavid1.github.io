@@ -894,3 +894,10 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
   #alumni .thesis-pop, #alumni tr:nth-last-child(-n+2) .thesis-pop { top: calc(100% - 8px); bottom: auto; z-index: 30; max-height: 55vh; }
   #alumni tr:has(details[open]) { z-index: 25; }
 }
+
+/* Home: application keywords under the hero intro */
+.hero-apps { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 18px 0 0; padding: 0; }
+.hero-apps::before { content: "Applications"; margin-right: 4px; font-size: 11.5px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.hero-apps li { padding: 5px 13px; border-radius: 999px; font-size: 13.5px; font-weight: 600; color: var(--navy); background: rgba(255,255,255,.75); border: 1px solid rgba(23,33,58,.12); }
+.hero-apps li.ha-main { background: var(--navy); border-color: var(--navy); color: #FFFFFF; }
+@media (max-width: 760px) { .hero-apps { gap: 6px; } .hero-apps li { font-size: 13px; padding: 4px 11px; } .hero-apps::before { width: 100%; margin-bottom: 2px; } }
