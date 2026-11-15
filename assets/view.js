@@ -43,29 +43,21 @@
         nav.appendChild(d);
       }
     }
-    // ---- footer link (mobile) / floating button (desktop layout on a phone) ----
+    // ---- floating switch button (phones only), same style in both modes ----
     if (!small) return;
-    var foot = document.querySelector('.site-footer .copy');
-    if (mode === 'mobile' && foot) {
-      var a = document.createElement('button');
-      a.type = 'button'; a.className = 'vm-link'; a.textContent = '데스크톱 화면으로 보기';
-      a.addEventListener('click', function () { set('desktop'); });
-      foot.appendChild(a);
-    }
-    if (mode === 'desktop') {
-      var k = DESK / sw;                             // desktop layout is zoomed out: scale the button back up
-      var b = document.createElement('button');
-      b.type = 'button'; b.className = 'vm-btn'; b.style.fontSize = (12.5 * k) + 'px';
-      b.innerHTML = ICON_PHONE + '<span>모바일 화면으로 보기</span>';
-      b.addEventListener('click', function () { set('mobile'); });
-      document.body.appendChild(b);
-      var last = window.scrollY;
-      window.addEventListener('scroll', function () {
-        var y = window.scrollY, end = y + innerHeight >= document.documentElement.scrollHeight - 40;
-        if (y > last + 4 && y > 200 && !end) b.classList.add('vm-hide');
-        else if (y < last - 4 || end) b.classList.remove('vm-hide');
-        last = y;
-      }, { passive: true });
-    }
+    var desk = mode === 'desktop';
+    var k = desk ? DESK / sw : 1;                    // desktop layout is zoomed out: scale the button back up
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'vm-btn'; b.style.fontSize = (12.5 * k) + 'px';
+    b.innerHTML = (desk ? ICON_PHONE : ICON_DESK) + '<span>' + (desk ? '모바일 화면으로 보기' : '데스크톱 화면으로 보기') + '</span>';
+    b.addEventListener('click', function () { set(desk ? 'mobile' : 'desktop'); });
+    document.body.appendChild(b);
+    var last = window.scrollY;
+    window.addEventListener('scroll', function () {
+      var y = window.scrollY, end = y + innerHeight >= document.documentElement.scrollHeight - 40;
+      if (y > last + 4 && y > 200 && !end) b.classList.add('vm-hide');
+      else if (y < last - 4 || end) b.classList.remove('vm-hide');
+      last = y;
+    }, { passive: true });
   });
 })();
