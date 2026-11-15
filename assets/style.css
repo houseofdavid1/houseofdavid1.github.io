@@ -949,3 +949,40 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
 }
 #panel-sim .rb:not(.rb-wide):nth-of-type(even) .rb-body { grid-template-columns: minmax(0, 1.14fr) minmax(0, 0.86fr); }
 @media (max-width: 900px) { #panel-sim .rb:not(.rb-wide):nth-of-type(even) .rb-body { grid-template-columns: 1fr; } }
+/* numerical methods & equations box */
+.rq { margin: 4px 0 18px; padding: 18px 20px 14px; border-radius: 14px; background: var(--panel); border: 1px solid var(--panel-line); }
+.rq-h { margin: 0 0 10px; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: var(--c); }
+.rq-m { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.rq-m span { font-size: 12.5px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: #FFFFFF; border: 1px solid var(--line); color: var(--navy); }
+.rq-eq { padding: 10px 0 4px; border-top: 1px dashed var(--line); }
+.rq-eq p { margin: 0 0 2px; font-size: 12px; font-weight: 700; color: var(--muted); }
+.rq-eq .katex-display { margin: 4px 0 6px; overflow-x: auto; overflow-y: hidden; padding: 2px 0; text-align: left; }
+.rq-eq .katex-display > .katex { text-align: left; }
+.rq-eq .katex { font-size: 1.02em; color: var(--ink); }
+#panel-sim .rb-facts-side .rq { margin-top: 0; }
+/* plasma block: two equal videos side by side */
+#sim-plasma .rb-media { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-items: start; max-width: 1000px; margin-inline: auto; width: 100%; }
+#sim-plasma .rm-main { max-width: none !important; }
+#sim-plasma .rm-row { display: block; margin: 0; padding: 0; overflow: visible; }
+#sim-plasma .rm-row .rm-thumb { max-width: none; }
+#sim-plasma .rm-row .rm-thumb .rm-frame { aspect-ratio: 960 / 1054 !important; border-radius: 16px; box-shadow: 0 14px 34px rgba(23,33,58,0.14); }
+#sim-plasma .rm-thumb figcaption { font-size: 13px; line-height: 1.55; margin-top: 9px; padding-left: 12px; border-left: 3px solid var(--c); color: var(--body); }
+.rb-wide .rq { grid-column: 2; grid-row: 1; margin-top: 0; }
+.rb-wide .rb-spec { grid-row: 2; }
+.rb-wide .rb-pubs { grid-row: 3; }
+@media (max-width: 600px) { #sim-plasma .rb-media { grid-template-columns: 1fr; } }
+#panel-sim .rb-facts-side .rq-eq .katex { font-size: 0.95em; }
+/* full-width equations box under each simulation block */
+.rb > .rq { margin: 30px 0 0; padding: 20px 24px 12px; }
+.rq-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-bottom: 6px; }
+.rq-top .rq-h { margin: 0; }
+.rq-top .rq-m { margin: 0; }
+.rq-eqs { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); column-gap: 32px; }
+.rb > .rq .rq-eq .katex { font-size: 1.05em; }
+.rb-wide > .rq { grid-column: auto; grid-row: auto; }
+@media (max-width: 600px) { .rb > .rq { padding: 16px 16px 10px; } .rq-eqs { grid-template-columns: minmax(0, 1fr); } }
+.rb > .rq .rq-eqs { display: block; }
+.rb > .rq .rq-eq { display: grid; grid-template-columns: 150px minmax(0, 1fr); column-gap: 18px; align-items: center; padding: 8px 0; }
+.rb > .rq .rq-eq p { margin: 0; }
+.rb > .rq .rq-eq .katex-display { margin: 0; }
+@media (max-width: 600px) { .rb > .rq .rq-eq { display: block; } .rb > .rq .rq-eq p { margin-bottom: 2px; } .rb > .rq .rq-eq .katex { font-size: 0.92em; } }
