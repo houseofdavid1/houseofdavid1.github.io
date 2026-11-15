@@ -648,4 +648,4 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
 .focus-sec + .topics-sec { padding-top: 44px; }
 .since-ko { display: block; margin-top: 6px; font-size: 12.5px; font-weight: 500; color: var(--accent); }
 .nw-name { font-weight: 700; color: var(--navy); }
-.nw-jr { font-style: normal; font-weight: 600; color: var(--mint-dark); background: rgba(15, 124, 122, 0.06); padding: 0 4px; border-radius: 4px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.nw-jr { font-style: normal; font-weight: 600; color: var(--coral-text); }
