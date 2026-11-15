@@ -1003,3 +1003,11 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
 #panel-sim .rb-wide .rb-rows { margin-bottom: 18px; }
 #sim-fsi .rb-media { max-width: 1000px; margin-inline: auto; width: 100%; }
 #sim-plasma .rb-media { max-width: 640px; }
+/* magnetic two-phase block: two videos side by side, equal height */
+#sim-magnetic .rb-media { grid-template-columns: minmax(0, 778fr) minmax(0, 536fr); gap: 22px; align-items: start; max-width: 720px; margin-inline: auto; width: 100%; }
+#sim-magnetic .rm-main { max-width: none !important; }
+#sim-magnetic .rm-row { display: block; margin: 0; padding: 0; overflow: visible; }
+#sim-magnetic .rm-row .rm-thumb { max-width: none; }
+#sim-magnetic .rm-row .rm-thumb .rm-frame { aspect-ratio: 536 / 1076 !important; border-radius: 16px; box-shadow: 0 14px 34px rgba(23,33,58,0.14); padding: 0; }
+#sim-magnetic .rm-thumb figcaption { font-size: 13px; line-height: 1.55; margin-top: 9px; padding-left: 12px; border-left: 3px solid var(--c); color: var(--body); }
+@media (max-width: 600px) { #sim-magnetic .rb-media { grid-template-columns: minmax(0, 778fr) minmax(0, 536fr); gap: 12px; } }
