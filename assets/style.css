@@ -987,3 +987,14 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
 .rb > .rq .rq-eq .katex-display { margin: 0; }
 @media (max-width: 600px) { .rb > .rq .rq-eq { display: block; } .rb > .rq .rq-eq p { margin-bottom: 2px; } .rb > .rq .rq-eq .katex { font-size: 0.92em; } }
 #sim-plasma .rb-media { max-width: 680px; gap: 18px; }
+/* FSI block: two videos side by side at equal height */
+#sim-fsi .rb-media { grid-template-columns: minmax(0, 1.778fr) minmax(0, 1.348fr); gap: 22px; align-items: start; }
+#sim-fsi .rm-main { max-width: none !important; }
+#sim-fsi .rm-row { display: block; margin: 0; padding: 0; overflow: visible; }
+#sim-fsi .rm-row .rm-thumb { max-width: none; }
+#sim-fsi .rm-row .rm-thumb .rm-frame { aspect-ratio: 1000 / 742 !important; border-radius: 16px; box-shadow: 0 14px 34px rgba(23,33,58,0.14); }
+#sim-fsi .rm-thumb figcaption { font-size: 13px; line-height: 1.55; margin-top: 9px; padding-left: 12px; border-left: 3px solid var(--c); color: var(--body); }
+@media (max-width: 700px) { #sim-fsi .rb-media { grid-template-columns: 1fr; } }
+#panel-sim .rb-wide .rb-spec { grid-row: 1; align-self: start; }
+#panel-sim .rb-wide .rb-pubs { grid-row: 2; align-self: start; }
+#sim-fsi .rb-pubs { grid-row: 1; }
