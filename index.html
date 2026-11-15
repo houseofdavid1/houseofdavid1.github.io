@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=63">
+<link rel="stylesheet" href="assets/style.css?v=64">
 </head>
 <body>
 
@@ -68,6 +68,14 @@
     </div>
   </section>
 
+  <section class="section news-section">
+    <div class="wrap">
+      <p class="eyebrow">NEWS</p>
+      <h2>연구실 소식</h2>
+      <ul class="news-list" id="news-list"></ul>
+    </div>
+  </section>
+
 
   <section class="section">
     <div class="wrap">
@@ -112,5 +120,6 @@
 
 <script>(function(){var b=document.querySelector('.join-toggle'),w=document.getElementById('join');if(!b||!w)return;function set(o){w.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');}b.addEventListener('click',function(){set(!w.classList.contains('open'));});if(location.hash==='#join')set(true);})();</script>
 <script>(function(){var v=document.querySelector(".hm-video");if(v&&window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches){v.removeAttribute("autoplay");v.pause();v.controls=true;}})();</script>
+<script src="assets/news.js?v=1"></script>
 </body>
 </html>
