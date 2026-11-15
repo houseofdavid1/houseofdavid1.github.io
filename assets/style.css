@@ -1025,3 +1025,6 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
 #sim-magnetic .rb-media { max-width: 170px; margin-inline: auto; }
 #sim-magnetic .rb-facts-side { width: 240px; }
 @media (max-width: 900px) { #sim-magnetic .rb-media { max-width: 200px; } #sim-magnetic .rb-facts-side { width: auto; } }
+#panel-sim #sim-magnetic .rb-body { grid-template-columns: minmax(0, 1fr) minmax(0, 170px); }
+#sim-magnetic .rb-facts-side { display: none; }
+#sim-magnetic .rb-facts-flow { display: block; }
