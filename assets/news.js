@@ -5,8 +5,8 @@ window.LAB_NEWS = [
   { date: "2026.02", tag: "논문", text: "우명린 학생의 논문 “A synthetic-data-trained deep learning model for predicting residual stress and melt pool characteristics in laser melting with arbitrary beam profiles”가 Materials & Design에 게재되었습니다.", link: "https://doi.org/10.1016/j.matdes.2026.115463" },
   { date: "2026", tag: "논문", text: "우명린 학생의 논문 “Industrial wafer edge segmentation for alignment: A dual resolution deep learning approach”가 Journal of Intelligent Manufacturing에 게재되었습니다.", link: "https://doi.org/10.1007/s10845-026-02912-5" },
   { date: "2025.12", tag: "논문", text: "남기문 박사의 논문 “Vision-to-code framework for automated weld seam tracking in laser welding”이 Journal of Manufacturing Processes에 게재되었습니다.", link: "https://doi.org/10.1016/j.jmapro.2025.10.111" },
-  { date: "2025.12", tag: "논문", text: "연구실 논문 “Transient electrodynamic simulation of laser beam reflection on inclined surfaces using a GAN-based deep learning model”이 Engineering Applications of Artificial Intelligence에 게재되었습니다.", link: "https://doi.org/10.1016/j.engappai.2025.112561" },
-  { date: "2025.10", tag: "논문", text: "연구실 논문 “AI-based real-time prediction of cross-sectional phase distribution during laser heat treatment”이 Materials & Design에 게재되었습니다.", link: "https://doi.org/10.1016/j.matdes.2025.114546" }
+  { date: "2025.12", tag: "논문", text: "손명균 박사의 논문 “Transient electrodynamic simulation of laser beam reflection on inclined surfaces using a GAN-based deep learning model”이 Engineering Applications of Artificial Intelligence에 게재되었습니다.", link: "https://doi.org/10.1016/j.engappai.2025.112561" },
+  { date: "2025.10", tag: "논문", text: "손명균 박사의 논문 “AI-based real-time prediction of cross-sectional phase distribution during laser heat treatment”이 Materials & Design에 게재되었습니다.", link: "https://doi.org/10.1016/j.matdes.2025.114546" }
 ];
 (function () {
   function key(d) { var p = String(d).split('.'); return (+p[0]) * 10000 + (+(p[1] || 0)) * 100 + (+(p[2] || 0)); }
