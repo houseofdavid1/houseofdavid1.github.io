@@ -29,6 +29,38 @@
     } else io.observe(v);
   });
 
+  // lightbox: click any figure / video to view it large
+  var lb = document.getElementById('rm-lb');
+  if (lb) {
+    var body = lb.querySelector('.rm-lb-body'), cap = lb.querySelector('.rm-lb-cap');
+    document.querySelectorAll('.rm-frame[data-full]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var fc = b.parentNode.querySelector('figcaption');
+        body.innerHTML = '';
+        var el;
+        if (b.dataset.kind === 'v') {
+          el = document.createElement('video');
+          el.src = b.dataset.full; el.controls = true; el.loop = true; el.muted = true; el.autoplay = true; el.playsInline = true;
+          var pv = b.querySelector('video'); if (pv && pv.poster) el.poster = pv.poster;
+        } else {
+          el = document.createElement('img'); el.src = b.dataset.full; el.alt = fc ? fc.textContent : '';
+        }
+        body.appendChild(el); cap.textContent = fc ? fc.textContent : '';
+        document.querySelectorAll('.rp-panel video').forEach(function (v) { if (!v.paused) v.pause(); });
+        if (typeof lb.showModal === 'function') lb.showModal(); else lb.setAttribute('open', '');
+        document.body.classList.add('dialog-open');
+      });
+    });
+    function closeLb() { if (typeof lb.close === 'function') lb.close(); else { lb.removeAttribute('open'); onClose(); } }
+    function onClose() {
+      body.innerHTML = ''; document.body.classList.remove('dialog-open');
+      if (io) document.querySelectorAll('.rp-panel:not([hidden]) .rm-video video').forEach(function (v) { io.unobserve(v); io.observe(v); });
+    }
+    lb.querySelector('.rm-lb-x').addEventListener('click', closeLb);
+    lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+    lb.addEventListener('close', onClose);
+  }
+
   function show(id, focusBlock, push) {
     var tab = tabs.filter(function (t) { return t.dataset.tab === id; })[0] || tabs[0];
     tabs.forEach(function (t) {
