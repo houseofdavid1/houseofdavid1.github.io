@@ -623,3 +623,5 @@ a.nw-row:hover .nw-go { color: var(--coral); transform: translate(2px, -2px); }
 .site-footer .copy { width: auto; border-top: 0; padding-top: 0; text-align: center; font-size: 13px; color: var(--on-navy); }
 .ft-sep { margin: 0 10px; color: var(--on-navy-muted); }
 @media (max-width: 640px) { .site-footer .copy { font-size: 12px; line-height: 1.8; } }
+.h-ko { display: block; margin-top: 4px; font-size: 0.6em; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+h3 .h-ko { font-size: 14px; margin-top: 3px; }

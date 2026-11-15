@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=70">
+<link rel="stylesheet" href="assets/style.css?v=71">
 </head>
 <body>
 
@@ -33,29 +33,29 @@
   <section class="page-hero">
     <div class="wrap">
       <h1>Research</h1>
-      <p>We have studied a wide range of laser processing technologies — macro processing such as heat treatment, welding and cladding, ultra-precision laser machining, and dual-beam pulsed laser deposition. Our current focus is advancing these technologies with artificial intelligence, while training researchers ready for the AI era of manufacturing.</p>
+      <p>본 연구실은 열처리·용접·클래딩 같은 거시 레이저 가공부터 초정밀 레이저 가공, 듀얼빔 펄스 레이저 증착까지 다양한 레이저 가공 기술과 그 수치해석을 연구해 왔습니다. 현재는 인공지능으로 이 기술들을 한 단계 발전시키는 데 집중하며, AI 시대의 제조 현장을 이끌 연구자를 키우고 있습니다.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
       <p class="eyebrow">CURRENT FOCUS</p>
-      <h2>AI for Laser Materials Processing</h2>
+      <h2>AI for Laser Materials Processing <span class="h-ko">레이저 가공을 위한 인공지능</span></h2>
       <div class="cards">
         <article class="card" id="r-monitor">
           <span class="num">01</span>
-          <h3>Real-time process monitoring</h3>
-          <p>Deep learning models read thermal and coaxial camera images during processing to predict what cannot be measured directly: laser beam absorptance in keyhole welding, top and bottom bead widths, and cross-sectional hardness and phase distributions in laser heat treatment.</p>
+          <h3>Real-time process monitoring<span class="h-ko">AI 기반 실시간 공정 모니터링</span></h3>
+          <p>가공 중 열화상·동축 카메라 영상을 딥러닝 모델이 읽어, 직접 측정할 수 없는 값을 실시간으로 예측합니다. 키홀 용접의 레이저 흡수율, 비드의 윗면·아랫면 폭, 레이저 열처리 단면의 경도·상 분포 등이 대표적입니다.</p>
         </article>
         <article class="card" id="r-surrogate">
           <span class="num">02</span>
-          <h3>Generative surrogate models</h3>
-          <p>GAN-based and image-to-image models trained on simulation and synthetic data replace expensive multiphysics computations — residual stress and melt pool prediction, electrodynamic beam reflection, and full-field deformation in line heating.</p>
+          <h3>Generative surrogate models<span class="h-ko">생성형 AI 대리모델</span></h3>
+          <p>시뮬레이션·합성 데이터로 학습한 GAN 및 이미지-투-이미지 모델이 계산 비용이 큰 멀티피직스 해석을 빠르게 대신합니다. 잔류응력과 용융풀 예측, 레이저 빔 반사의 전자기 해석, 선상가열의 전체 변형장 예측 등에 활용합니다.</p>
         </article>
         <article class="card" id="r-v2c">
           <span class="num">03</span>
-          <h3>Vision-to-code autonomous processing</h3>
-          <p>Models that turn camera images directly into machine control code, enabling automated weld seam tracking, AI-assisted femtosecond laser patterning, and narrow-gap butt welding without explicit geometric reconstruction.</p>
+          <h3>Vision-to-code autonomous processing<span class="h-ko">Vision-to-Code 자율 가공</span></h3>
+          <p>카메라 영상으로부터 장비 제어 코드를 직접 생성하는 모델을 개발합니다. 이를 통해 용접선 자동 추적, AI 기반 펨토초 레이저 패터닝, 별도의 3차원 형상 복원 없이 이루어지는 협개선 맞대기 용접을 사람의 개입 없이 수행합니다.</p>
         </article>
       </div>
     </div>
@@ -64,28 +64,28 @@
   <section class="section soft">
     <div class="wrap">
       <p class="eyebrow">RESEARCH TOPICS</p>
-      <h2>Research Topics</h2>
+      <h2>Research Topics <span class="h-ko">세부 연구 주제</span></h2>
 
       <div class="topic">
         <div class="topic-body">
-          <h3>Deep learning for laser hardening prediction</h3>
-          <p>A deep learning model predicts the hardness distribution over the cross-section of carbon steel after laser hardening, outperforming our earlier model based on carbon diffusion time.</p>
+          <h3>Deep learning for laser hardening prediction<span class="h-ko">딥러닝 기반 레이저 경화 예측</span></h3>
+          <p>레이저 경화 후 탄소강 단면의 경도 분포를 딥러닝 모델로 예측합니다. 탄소 확산 시간에 기반한 기존 모델보다 더 정확한 예측 성능을 보입니다.</p>
           <div class="tags"><span>Laser heat treatment</span><span>Deep learning</span><span>Hardness prediction</span></div>
         </div>
       </div>
 
       <div class="topic">
         <div class="topic-body">
-          <h3>Deep learning for laser welding prediction</h3>
-          <p>From laser process parameters, a deep learning model predicts the cross-sectional shape of the weld bead, opening the way to data-driven design of welding conditions.</p>
+          <h3>Deep learning for laser welding prediction<span class="h-ko">딥러닝 기반 레이저 용접 예측</span></h3>
+          <p>레이저 공정 변수로부터 용접 비드의 단면 형상을 딥러닝 모델로 예측합니다. 데이터 기반으로 용접 조건을 설계할 수 있는 길을 엽니다.</p>
           <div class="tags"><span>Keyhole welding</span><span>Bead geometry</span><span>Deep learning</span></div>
         </div>
       </div>
 
       <div class="topic">
         <div class="topic-body">
-          <h3>Femtosecond laser surface patterning (LIPSS)</h3>
-          <p>Laser-induced periodic surface structures and their modified forms let us control the reflectance of metal surfaces, producing fine decorative patterns. Femtosecond patterning combined with wet etching also creates surfaces with tunable wetting behavior.</p>
+          <h3>Femtosecond laser surface patterning (LIPSS)<span class="h-ko">펨토초 레이저 표면 패터닝</span></h3>
+          <p>레이저 유도 주기 표면 구조(LIPSS)와 그 변형 구조로 금속 표면의 반사율을 제어해 정교한 장식 패턴을 만듭니다. 펨토초 패터닝과 습식 식각을 결합해 젖음성을 조절할 수 있는 표면도 제작합니다.</p>
           <div class="tags"><span>Femtosecond laser</span><span>LIPSS</span><span>Surface functionalization</span></div>
         </div>
         <div class="figure">
@@ -95,24 +95,24 @@
 
       <div class="topic">
         <div class="topic-body">
-          <h3>Electromagnetic analysis of laser processing</h3>
-          <p>We solve Maxwell's equations numerically to model how a laser beam propagates and interacts with materials — for example, femtosecond laser interaction with silicon using electromagnetic analysis coupled with a two-temperature model and an ionization model.</p>
+          <h3>Electromagnetic analysis of laser processing<span class="h-ko">레이저 가공의 전자기 해석</span></h3>
+          <p>맥스웰 방정식을 수치적으로 풀어 레이저 빔의 전파와 재료와의 상호작용을 해석합니다. 예를 들어 전자기 해석에 2온도 모델과 이온화 모델을 결합해 펨토초 레이저와 실리콘의 상호작용을 연구합니다.</p>
           <div class="tags"><span>FDTD</span><span>Laser–matter interaction</span><span>Two-temperature model</span></div>
         </div>
       </div>
 
       <div class="topic">
         <div class="topic-body">
-          <h3>Dual-beam pulsed laser deposition for broadband antireflection coatings</h3>
-          <p>By co-depositing glass and silicon on silicon with a mixing ratio that changes continuously along a designed profile (e.g., linear or Southwell), we fabricate graded-index coatings that increase light absorption over a broad wavelength range for solar cells.</p>
+          <h3>Dual-beam pulsed laser deposition for broadband antireflection coatings<span class="h-ko">듀얼빔 펄스 레이저 증착 광대역 반사방지 코팅</span></h3>
+          <p>유리와 실리콘을 설계한 분포(선형, Southwell 등)에 따라 혼합 비율을 연속적으로 바꾸며 실리콘 위에 동시 증착합니다. 이렇게 만든 굴절률 경사 코팅은 넓은 파장 영역에서 태양전지의 빛 흡수를 높입니다.</p>
           <div class="tags"><span>Pulsed laser deposition</span><span>Functionally graded films</span><span>Solar cells</span></div>
         </div>
       </div>
 
       <div class="topic">
         <div class="topic-body">
-          <h3>Fluid–structure interaction for residual stress analysis</h3>
-          <p>Most studies ignore the interaction between liquid and solid across the mushy zone during melting and solidification. We treat it as a fluid–structure interaction problem with a unified momentum equation approach to compute thermal residual stresses more faithfully.</p>
+          <h3>Fluid–structure interaction for residual stress analysis<span class="h-ko">유체–구조 연성 기반 잔류응력 해석</span></h3>
+          <p>대부분의 연구는 용융·응고 과정에서 반고상(mushy zone) 영역의 액체와 고체 간 상호작용을 무시합니다. 본 연구실은 이를 유체–구조 연성 문제로 보고 통합 운동량 방정식 기법으로 열 잔류응력을 더 정확하게 계산합니다.</p>
           <div class="tags"><span>Residual stress</span><span>Fluid–structure interaction</span><span>Computational modeling</span></div>
         </div>
         <div class="figure">
