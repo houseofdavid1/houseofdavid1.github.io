@@ -1,4 +1,4 @@
-/* Lab news — newest items are shown automatically (top 6 by date).
+/* Lab news — the home page shows every item from the past 12 months (newest first).
    Markup in text: {{Name}} = lab member, [[Journal]] = journal name.
    Add an entry: { date: "YYYY.MM.DD" or "YYYY.MM", tag: "논문|수상|학회|소식|졸업|입학", text: "...", link: "https://..." (optional) } */
 window.LAB_NEWS = [
@@ -26,7 +26,12 @@ window.LAB_NEWS = [
     }).join('');
   }
   var box = document.getElementById('news-list');
-  if (box) box.innerHTML = rows(all.slice(0, 6));
+  // home list: everything from the past 12 months (falls back to the latest 3 if none)
+  var now = new Date();
+  var cutoff = (now.getFullYear() - 1) * 10000 + (now.getMonth() + 1) * 100 + now.getDate();
+  var recent = all.filter(function (n) { return key(n.date) >= cutoff || String(n.date).split('.').length === 1 && +n.date >= now.getFullYear() - 1 + 1; });
+  if (!recent.length) recent = all.slice(0, 3);
+  if (box) box.innerHTML = rows(recent);
   var btn = document.getElementById('news-all'), dlg = document.getElementById('news-dialog');
   if (!btn || !dlg) return;
   var full = document.getElementById('news-full'), cnt = document.getElementById('nd-count');
