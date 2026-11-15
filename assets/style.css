@@ -642,3 +642,7 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
 .topics-sec .topic:nth-of-type(3n+2) { --tp: var(--accent); --tp-bg: var(--accent-soft); --tp-line: var(--accent-soft-line); }
 .topics-sec .topic:nth-of-type(3n)   { --tp: var(--coral-text); --tp-bg: var(--coral-soft); --tp-line: #F6C9B8; }
 @media (max-width: 640px) { .topics-sec .topic { padding: 22px 20px 20px 24px; } .topics-sec .topic::after { font-size: 34px; } }
+.focus-sec { padding: 44px 0 36px; }
+.focus-sec h2 { margin-bottom: 20px; }
+.focus-sec .card { padding-top: 22px; padding-bottom: 22px; }
+.focus-sec + .topics-sec { padding-top: 44px; }
