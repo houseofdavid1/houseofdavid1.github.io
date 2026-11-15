@@ -1,6 +1,6 @@
 /* View mode + mobile menu.
    Default: responsive (mobile layout on phones). Phones may opt into the desktop layout; the choice is remembered.
-   Must load synchronously in <head>, right after the viewport meta. */
+   Must load synchronously at the top of <head>; it writes the viewport meta itself. */
 (function () {
   var KEY = 'ptl-view', DESK = 1280;
   var sw = Math.min(screen.width || DESK, screen.height || DESK);
@@ -8,11 +8,31 @@
   var mode = 'mobile';
   try { if (localStorage.getItem(KEY) === 'desktop') mode = 'desktop'; } catch (e) {}
   if (!small) mode = 'mobile';                       // large screens: plain responsive layout
+  // The viewport meta is written here (not in the HTML) so the browser sees the right width AND zoom on first layout.
+  // Desktop layout on a phone: give an explicit zoom so the full 1280px page fits edge to edge.
+  // (Some browsers, notably iOS Safari, keep scale 1 if only the width changes.)
+  function deskVP() {
+    var land = window.matchMedia && matchMedia('(orientation: landscape)').matches;
+    var w = land ? Math.max(screen.width, screen.height) : Math.min(screen.width, screen.height);
+    var z = Math.min(1, w / DESK).toFixed(4);
+    return 'width=' + DESK + ', initial-scale=' + z + ', minimum-scale=' + z;
+  }
+  document.write('<meta name="viewport" content="' + (mode === 'desktop' ? deskVP() : 'width=device-width, initial-scale=1') + '">');
   var vp = document.querySelector('meta[name="viewport"]');
-  if (vp) vp.setAttribute('content', mode === 'desktop' ? 'width=' + DESK : 'width=device-width, initial-scale=1');
+  if (mode === 'desktop' && vp) window.addEventListener('orientationchange', function () {
+    setTimeout(function () { vp.setAttribute('content', deskVP()); }, 150);
+  });
   if (small) document.documentElement.classList.add('vm-' + mode);
 
-  function set(m) { try { localStorage.setItem(KEY, m); } catch (e) {} location.reload(); }
+  // Switch by a fresh navigation (not reload): a reload keeps the old zoom level, so the desktop page would stay zoomed in.
+  function set(m) {
+    try { localStorage.setItem(KEY, m); } catch (e) {}
+    var u = location.pathname + '?view=' + m + location.hash;
+    location.replace(u);
+  }
+  if (/[?&]view=/.test(location.search) && history.replaceState) {
+    try { history.replaceState(null, '', location.pathname + location.hash); } catch (e) {}
+  }
   var ICON_DESK = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>';
   var ICON_PHONE = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg>';
 
