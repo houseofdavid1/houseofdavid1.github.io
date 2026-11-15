@@ -934,3 +934,4 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
 }
 .member-lead .bio-wide .bio-label + .timeline { margin-bottom: 0; }
 @media (max-width: 900px) { .member-lead .bio-wide { grid-template-columns: 1fr; row-gap: 16px; } }
+.member-lead .bio-wide { border-top: 0; padding-top: 0; margin-top: -8px; row-gap: 12px; }
