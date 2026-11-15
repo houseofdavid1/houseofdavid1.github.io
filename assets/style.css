@@ -1029,3 +1029,5 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
 #sim-magnetic .rb-facts-side { display: none; }
 #sim-magnetic .rb-facts-flow { display: block; }
 #sim-fsi .rb-media { max-width: 780px; }
+#sim-fsi .rb-media { grid-template-columns: minmax(0, 1.778fr) minmax(0, 1.165fr); }
+#sim-fsi .rm-row .rm-thumb .rm-frame { aspect-ratio: 832 / 714 !important; }
