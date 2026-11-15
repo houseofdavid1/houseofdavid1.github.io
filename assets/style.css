@@ -859,3 +859,38 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
   .rm-row.rm-n2::-webkit-scrollbar, .rm-row.rm-n3::-webkit-scrollbar { display: none; }
   .rm-row.rm-n2 .rm-thumb, .rm-row.rm-n3 .rm-thumb { flex: 0 0 72%; scroll-snap-align: start; }
 }
+
+/* ===== Alumni on phones: each row becomes a card (desktop table unchanged) ===== */
+@media (max-width: 760px) {
+  #alumni .table-box { overflow: visible; border: 0; background: transparent; border-radius: 0; margin-top: 18px; }
+  #alumni table { min-width: 0; display: block; font-size: 14.5px; }
+  #alumni thead { display: none; }
+  #alumni tbody { display: grid; gap: 12px; }
+  #alumni tr { display: grid; grid-template-columns: auto auto 1fr; align-items: center; column-gap: 6px;
+    padding: 16px 16px 14px; background: #FFFFFF; border: 1px solid var(--line); border-radius: 14px;
+    box-shadow: 0 1px 2px rgba(23,33,58,0.04), 0 8px 22px -14px rgba(23,33,58,0.22); position: relative; }
+  #alumni td { display: block; padding: 0; border: 0; }
+  #alumni td:first-child { grid-column: 1 / -1; grid-row: 1; font-size: 17px; font-weight: 700; color: var(--navy); line-height: 1.3; }
+  #alumni td:nth-child(2) { display: contents; }
+  #alumni .deg-line { grid-column: 1 / -1; grid-row: 2; margin-top: 3px; font-size: 13.5px; color: var(--muted); line-height: 1.45; }
+  #alumni .deg-line .deg { color: var(--coral-text); }
+  #alumni td.pos { grid-column: 1 / -1; grid-row: 3; margin: 12px 0 12px; padding: 12px; border-radius: 12px; background: var(--panel); border: 1px solid var(--panel-line); }
+  #alumni .pos-wrap { gap: 12px; }
+  #alumni .pos-en { font-size: 14.5px; line-height: 1.4; }
+  #alumni .pos-ko { font-size: 12.5px; }
+  #alumni td:nth-child(2) > .thesis-box, #alumni td:nth-child(2) > .chip-off { grid-row: 4; margin: 0; position: static; }
+  #alumni td:nth-child(2) > :nth-child(2) { grid-column: 1; }
+  #alumni td:nth-child(2) > :nth-child(3) { grid-column: 2; }
+  /* popovers open as a full-width sheet inside the card */
+  #alumni .thesis-pop, #alumni tr:nth-last-child(-n+2) .thesis-pop { position: absolute; left: 10px; right: 10px; top: auto; bottom: calc(100% - 14px); width: auto; max-height: 60vh; overflow-y: auto; }
+  #alumni .thesis-pop::before { display: none; }
+}
+@media (max-width: 760px) {
+  #alumni tr { padding: 14px 14px 12px; }
+  #alumni td.pos { margin: 10px 0; padding: 10px; }
+  #alumni .logo { flex-basis: 96px; height: 42px; padding: 4px 8px; }
+}
+@media (max-width: 760px) {
+  #alumni .thesis-pop, #alumni tr:nth-last-child(-n+2) .thesis-pop { top: calc(100% - 8px); bottom: auto; z-index: 30; max-height: 55vh; }
+  #alumni tr:has(details[open]) { z-index: 25; }
+}
