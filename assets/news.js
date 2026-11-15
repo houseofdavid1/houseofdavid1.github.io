@@ -2,6 +2,7 @@
    Markup in text: {{Name}} = lab member, [[Journal]] = journal name.
    Add an entry: { date: "YYYY.MM.DD" or "YYYY.MM", tag: "논문|수상|학회|소식|졸업|입학", text: "...", link: "https://..." (optional) } */
 window.LAB_NEWS = [
+  { date: "2026.03", tag: "진로", text: "{{손명균}} 박사가 삼성SDI에 입사했습니다. 축하합니다!" },
   { date: "2026.08", tag: "입학", text: "{{장준희}} 학생이 석박사 통합과정으로 입학했습니다. 환영합니다!" },
   { date: "2025.12.17", tag: "학위", text: "{{남기문}}, {{진형국}} 학생이 박사학위 논문 심사(디펜스)를 성공적으로 마쳤습니다. 축하합니다!" },
   { date: "2026.02", tag: "논문", text: "{{우명린}} 학생의 논문 “A synthetic-data-trained deep learning model for predicting residual stress and melt pool characteristics in laser melting with arbitrary beam profiles”가 [[Materials & Design]]에 게재되었습니다.", link: "https://doi.org/10.1016/j.matdes.2026.115463" },
