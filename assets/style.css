@@ -925,3 +925,12 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
 .nw-tag.t-award  { color: #8A5A00; background: #FFF3D6; border-color: #F6E3B3; }   /* 수상 */
 .nw-tag.t-conf   { color: #1C6E9E; background: #E3F1FA; border-color: #CBE4F3; }   /* 학회 */
 .nw-tag.t-news   { color: #4B5568; background: #EEF0F4; border-color: #E0E3EA; }   /* 소식 */
+
+/* Professor card: photo + education on top, career & service share the full card width below */
+.member-lead .bio-wide { display: grid; grid-template-columns: 1fr; row-gap: 16px; }
+@media (min-width: 761px) {
+  .member-lead { display: grid; grid-template-columns: 180px minmax(0, 1fr); column-gap: 22px; align-items: start; }
+  .member-lead .bio-wide { grid-column: 1 / -1; margin-top: 2px; }
+}
+.member-lead .bio-wide .bio-label + .timeline { margin-bottom: 0; }
+@media (max-width: 900px) { .member-lead .bio-wide { grid-template-columns: 1fr; row-gap: 16px; } }
