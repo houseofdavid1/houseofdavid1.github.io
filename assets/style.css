@@ -795,3 +795,9 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
 .rb-wide .rb-spec { grid-column: 2; grid-row: 2; }
 .rb-wide .rb-pubs { grid-column: 2; grid-row: 3; }
 @media (max-width: 900px) { .rb-wide .rb-text { display: block; } }
+
+/* ===== View-mode switch (phones only; injected by view.js) ===== */
+.vm-btn { position: fixed; z-index: 90; right: 1em; bottom: 1em; display: inline-flex; align-items: center; gap: .5em; padding: .7em 1.1em .7em .9em; border: 0; border-radius: 999px; background: var(--navy); color: #FFFFFF; font-family: inherit; font-weight: 700; line-height: 1; box-shadow: 0 .4em 1.2em rgba(23,33,58,0.28); cursor: pointer; opacity: .94; transition: transform .25s ease, opacity .25s ease; }
+.vm-btn.vm-hide { transform: translateY(160%); opacity: 0; pointer-events: none; }
+.vm-btn svg { width: 1.3em; height: 1.3em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.vm-btn:active { transform: scale(0.97); }
