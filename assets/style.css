@@ -998,3 +998,8 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
 #panel-sim .rb-wide .rb-spec { grid-row: 1; align-self: start; }
 #panel-sim .rb-wide .rb-pubs { grid-row: 2; align-self: start; }
 #sim-fsi .rb-pubs { grid-row: 1; }
+/* wide sim blocks: full-width text, slightly smaller videos */
+#panel-sim .rb-wide .rb-text { display: block; }
+#panel-sim .rb-wide .rb-rows { margin-bottom: 18px; }
+#sim-fsi .rb-media { max-width: 1000px; margin-inline: auto; width: 100%; }
+#sim-plasma .rb-media { max-width: 640px; }
