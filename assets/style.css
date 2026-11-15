@@ -1031,3 +1031,10 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
 #sim-fsi .rb-media { max-width: 780px; }
 #sim-fsi .rb-media { grid-template-columns: minmax(0, 1.778fr) minmax(0, 1.165fr); }
 #sim-fsi .rm-row .rm-thumb .rm-frame { aspect-ratio: 832 / 714 !important; }
+/* Home hero v2: copy + video side by side, about card full width below */
+.hero-grid { align-items: center; }
+.hero-below { margin-top: 32px; }
+.hero-below .hero-about { margin-top: 0; }
+.hero .hero-below .hero-about p { max-width: none; }
+@media (max-width: 960px) { .hero-below { margin-top: 28px; } }
+@media (min-width: 761px) { .hero-below .ha-title br { display: none; } }
