@@ -1021,3 +1021,7 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
 #panel-sim #sim-magnetic .rb-body { grid-template-columns: minmax(0, 1fr) minmax(0, 230px); }
 #sim-magnetic .rb-media { grid-template-columns: minmax(0, 1fr); max-width: 230px; }
 @media (max-width: 900px) { #sim-magnetic .rb-media { max-width: 260px; } }
+#panel-sim #sim-magnetic .rb-body { grid-template-columns: minmax(0, 1fr) minmax(0, 240px); }
+#sim-magnetic .rb-media { max-width: 170px; margin-inline: auto; }
+#sim-magnetic .rb-facts-side { width: 240px; }
+@media (max-width: 900px) { #sim-magnetic .rb-media { max-width: 200px; } #sim-magnetic .rb-facts-side { width: auto; } }
