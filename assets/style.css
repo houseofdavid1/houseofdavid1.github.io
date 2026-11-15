@@ -596,3 +596,26 @@ a.nw-row:hover .nw-go { color: var(--coral); transform: translate(2px, -2px); }
 .topics-band .ht-mint  { --ht: #4FD1C5; --ht-soft: rgba(79, 209, 197, 0.16); }
 .topics-band .ht-navy  { --ht: #8FA8FF; --ht-soft: rgba(143, 168, 255, 0.18); }
 .topics-band .ht-coral { --ht: #FF8A65; --ht-soft: rgba(255, 138, 101, 0.18); }
+
+/* Contact page */
+.contact-section { padding-top: 40px; }
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+.contact-cards { display: flex; flex-direction: column; gap: 14px; }
+.ct-card { position: relative; display: flex; gap: 16px; padding: 20px 22px; background: #FFFFFF; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.ct-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--ct); }
+.ct-icon { flex: 0 0 44px; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; color: var(--ct); background: var(--ct-soft); }
+.ct-icon svg { width: 22px; height: 22px; }
+.ct-label { margin: 0 0 4px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ct); }
+.ct-main { margin: 0; font-size: 16px; font-weight: 600; color: var(--navy); line-height: 1.55; }
+.ct-ko { margin: 4px 0 0; font-size: 14px; color: var(--muted); line-height: 1.6; }
+.ct-mail { display: flex; align-items: center; gap: 8px; margin: 10px 0 0; color: var(--muted); font-size: 14px; }
+.ct-mail svg { width: 15px; height: 15px; }
+.ct-mint  { --ct: var(--mint);  --ct-soft: var(--mint-soft); }
+.ct-navy  { --ct: var(--accent); --ct-soft: var(--accent-soft); }
+.ct-coral { --ct: var(--coral-text); --ct-soft: var(--coral-soft); }
+.ct-note { margin: 6px 2px 0; font-size: 14px; color: var(--body); }
+.contact-map { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: var(--panel); aspect-ratio: 4 / 3.4; }
+.contact-map iframe { width: 100%; height: 100%; border: 0; display: block; }
+.ct-maplink { position: absolute; right: 12px; bottom: 12px; padding: 7px 12px; border-radius: 999px; background: #FFFFFF; color: var(--accent); font-size: 13px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(23,33,58,0.15); }
+.ct-maplink:hover { color: var(--coral); }
+@media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
