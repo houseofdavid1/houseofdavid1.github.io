@@ -1028,3 +1028,4 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
 #panel-sim #sim-magnetic .rb-body { grid-template-columns: minmax(0, 1fr) minmax(0, 170px); }
 #sim-magnetic .rb-facts-side { display: none; }
 #sim-magnetic .rb-facts-flow { display: block; }
+#sim-fsi .rb-media { max-width: 780px; }
