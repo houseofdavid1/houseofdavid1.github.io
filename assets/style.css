@@ -1129,3 +1129,26 @@ a.rov-box:hover { border-color: var(--c, var(--accent)); box-shadow: 0 8px 20px 
 }
 .rp-sec[hidden], .rb[hidden] { display: none; }
 @media (max-width: 900px) { .rov-arw br { display: none; } }
+
+/* ===== Research tabs: clearer button affordance ===== */
+.rt-hint { display: flex; align-items: center; gap: 7px; margin: 0; padding: 26px 0 8px; font-size: 13.5px; font-weight: 700; color: var(--navy); }
+.rt-hint svg { width: 16px; height: 16px; color: var(--accent); animation: rt-bob 1.8s ease-in-out infinite; }
+.rt-hint span { font-weight: 500; font-size: 12px; color: var(--muted); margin-left: 4px; }
+@keyframes rt-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+@media (prefers-reduced-motion: reduce) { .rt-hint svg { animation: none; } }
+.rt-tabs { padding: 12px 0 16px; }
+.rt-tab { position: relative; padding-right: 26px; border: 1px solid #CDD5E1; background: linear-gradient(180deg, #FFFFFF 0%, #F3F6FA 100%); box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 2px 0 #DDE3EC, 0 4px 10px rgba(23,33,58,0.06); }
+.rt-tab:hover { transform: translateY(-2px); background: #FFFFFF; border-color: var(--c); box-shadow: 0 2px 0 var(--cs), 0 10px 22px rgba(23,33,58,0.12); }
+.rt-tab:active { transform: translateY(1px); box-shadow: 0 1px 0 #DDE3EC, 0 2px 6px rgba(23,33,58,0.06); }
+.rt-tab:focus-visible { outline: 3px solid var(--c); outline-offset: 2px; }
+.rt-chev { position: absolute; right: 8px; top: 50%; width: 15px; height: 15px; margin-top: -7.5px; color: #9AA6B8; transition: transform .18s, color .18s; }
+.rt-chev svg { display: block; width: 100%; height: 100%; }
+.rt-tab:hover .rt-chev { color: var(--c); transform: translateX(2px); }
+.rt-tab[aria-selected="true"] { box-shadow: 0 8px 20px rgba(23,33,58,0.2); transform: none; }
+.rt-tab[aria-selected="true"] .rt-chev { color: #FFFFFF; transform: rotate(90deg); }
+.rt-tab[aria-selected="true"]::after { content: ""; position: absolute; left: 50%; bottom: -7px; width: 13px; height: 13px; margin-left: -6.5px; background: var(--c); transform: rotate(45deg); border-radius: 2px; }
+@media (max-width: 900px) {
+  .rt-tab[aria-selected="true"]::after { display: none; }
+  .rt-tabs { padding: 10px 0 12px; }
+}
+@media (max-width: 640px) { .rt-hint { padding-top: 18px; font-size: 13px; } .rt-hint span { display: none; } }
