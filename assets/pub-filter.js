@@ -47,6 +47,16 @@
       if (sel[k]) {
         delete sel[k]; order = order.filter(function (x) { return x !== k; });
       } else {
+        // a group chip ("AI · all") and the topics inside the same group are mutually exclusive
+        var grp = c.closest('.tf-group');
+        if (grp) {
+          var isG = c.classList.contains('tf-gchip');
+          Array.prototype.forEach.call(grp.querySelectorAll('.topic-chip'), function (o) {
+            if (o !== c && (isG || o.classList.contains('tf-gchip'))) {
+              var ok = o.dataset.topic; order = order.filter(function (x) { return x !== ok; });
+            }
+          });
+        }
         order.push(k);
         // if the combination has no papers, release the oldest selections until something matches
         while (order.length > 1 && !count(order)) order.shift();
