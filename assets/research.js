@@ -1,7 +1,7 @@
 (function () {
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.rt-tab'));
   if (!tabs.length) return;
-  var LEGACY = { 'ht': 'weld', 'r-monitor': 'ai-monitor', 'r-surrogate': 'ai-surrogate', 'r-v2c': 'ai-v2c' };
+  var LEGACY = { 'r-monitor': 'ai-monitor', 'r-surrogate': 'ai-surrogate', 'r-v2c': 'ai-v2c' };
   var bar = document.querySelector('.rt-bar');
   function hdr() {
     var h = document.querySelector('.site-header');
