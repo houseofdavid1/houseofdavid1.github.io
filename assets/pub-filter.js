@@ -50,9 +50,9 @@
         // a group chip ("AI · all") and the topics inside the same group are mutually exclusive
         var grp = c.closest('.tf-group');
         if (grp) {
-          var isG = c.classList.contains('tf-gchip');
+          // one selection per group (radio); different groups combine with AND
           Array.prototype.forEach.call(grp.querySelectorAll('.topic-chip'), function (o) {
-            if (o !== c && (isG || o.classList.contains('tf-gchip'))) {
+            if (o !== c) {
               var ok = o.dataset.topic; order = order.filter(function (x) { return x !== ok; });
             }
           });
