@@ -68,7 +68,7 @@
   function clearFilter() {
     document.body.classList.remove('rf-on');
     fbtns.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.f ? 'false' : 'true'); });
-    document.querySelectorAll('.rb[hidden], .rp-sub[hidden]').forEach(function (el) { el.hidden = false; });
+    document.querySelectorAll('.rb[hidden], .rp-sec[hidden]').forEach(function (el) { el.hidden = false; });
     if (fcount) fcount.textContent = '';
   }
   function reobserve() {
@@ -86,9 +86,9 @@
         var on = (' ' + (b.dataset.tags || '') + ' ').indexOf(' ' + f + ' ') > -1;
         b.hidden = !on; if (on) { any = true; n++; }
       });
-      p.querySelectorAll('.rp-sub').forEach(function (h) {
+      p.querySelectorAll('.rp-sec').forEach(function (h) {
         var el = h.nextElementSibling, vis = false;
-        while (el && !el.classList.contains('rp-sub')) { if (el.classList.contains('rb') && !el.hidden) vis = true; el = el.nextElementSibling; }
+        while (el && !el.classList.contains('rp-sec')) { if (el.classList.contains('rb') && !el.hidden) vis = true; el = el.nextElementSibling; }
         h.hidden = !vis;
       });
       p.hidden = !any; if (any) np++;

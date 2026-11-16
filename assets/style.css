@@ -1097,10 +1097,10 @@ a.rov-box:hover { border-color: var(--c, var(--accent)); box-shadow: 0 8px 20px 
 .rb-tag:hover { border-color: var(--c); color: var(--c); }
 .rb-tag::before { content: "#"; opacity: .6; margin-right: 1px; }
 
-.rp-sub { display: flex; align-items: baseline; gap: 12px; margin: 30px 0 0; padding: 12px 0 10px; border-bottom: 2px solid var(--c); }
-.rp-sub b { font-size: 19px; color: var(--navy); }
-.rp-sub span { order: 2; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--c); }
-.rp-sub + .rb { border-top: 0; padding-top: 34px; }
+.rp-sec { display: flex; align-items: baseline; gap: 12px; margin: 30px 0 0; padding: 12px 0 10px; border-bottom: 2px solid var(--c); }
+.rp-sec b { font-size: 19px; color: var(--navy); }
+.rp-sec span { order: 2; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--c); }
+.rp-sec + .rb { border-top: 0; padding-top: 34px; }
 .rp-toc-g { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 18px; }
 .rp-tg > b { display: block; margin: 0 0 7px 2px; font-size: 12px; font-weight: 800; color: var(--c); letter-spacing: .04em; }
 .rp-tg > div { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -1110,7 +1110,7 @@ a.rov-box:hover { border-color: var(--c, var(--accent)); box-shadow: 0 8px 20px 
 .rf-on .rp-panel:not([hidden]) ~ .rp-panel:not([hidden]) { margin-top: 30px; padding-top: 40px; border-top: 2px solid var(--line); }
 .rf-on .rp-head .rp-ic { flex-basis: 44px; width: 44px; height: 44px; }
 .rf-on .rp-head h2 { font-size: clamp(21px, 2.4vw, 26px); }
-.rf-on .rp-intro + .rb, .rf-on .rp-sub + .rb { padding-top: 30px; }
+.rf-on .rp-intro + .rb, .rf-on .rp-sec + .rb { padding-top: 30px; }
 
 @media (max-width: 900px) {
   .rov { grid-template-columns: 1fr; gap: 0; }
@@ -1125,7 +1125,7 @@ a.rov-box:hover { border-color: var(--c, var(--accent)); box-shadow: 0 8px 20px 
   .rf-l { width: 100%; margin: 0 0 2px; }
   .rf-b { font-size: 12.5px; padding: 4px 11px; }
   .rf-n { width: 100%; margin: 2px 0 0; }
-  .rp-sub b { font-size: 17px; }
+  .rp-sec b { font-size: 17px; }
 }
-.rp-sub[hidden], .rb[hidden] { display: none; }
+.rp-sec[hidden], .rb[hidden] { display: none; }
 @media (max-width: 900px) { .rov-arw br { display: none; } }
