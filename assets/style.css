@@ -1038,3 +1038,9 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
 .hero .hero-below .hero-about p { max-width: none; }
 @media (max-width: 960px) { .hero-below { margin-top: 28px; } }
 @media (min-width: 761px) { .hero-below .ha-title br { display: none; } }
+/* grouped topic filter */
+.tf-chips { display: grid; gap: 10px; }
+.tf-chips > .tc-all { justify-self: start; }
+.tf-group { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-top: 10px; border-top: 1px dashed var(--panel-line); }
+.tf-glabel { flex: 0 0 92px; font-size: 11.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+@media (max-width: 640px) { .tf-glabel { flex-basis: 100%; } }
