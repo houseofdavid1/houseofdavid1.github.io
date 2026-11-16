@@ -1051,3 +1051,14 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
 .tf-group .tf-gchip { border-color: #1B2A4E; color: #1B2A4E; }
 .tf-group .tf-gchip.is-on { background: #1B2A4E !important; border-color: #1B2A4E !important; color: #FFFFFF !important; opacity: 1; box-shadow: 0 3px 10px rgba(27,42,78,0.28); }
 .tf-group .tf-gchip.is-on .tf-all { opacity: 0.85; }
+
+/* sim-fsi: third column for the tall bouncing-ball video */
+#sim-fsi .rm-row .rm-thumb .rm-frame[data-full*="sim-bounce"] { aspect-ratio: 364 / 1052 !important; }
+@media (min-width: 701px) {
+  #sim-fsi .rb-media { max-width: 1060px !important; grid-template-columns: minmax(0, 1.778fr) minmax(0, 1.165fr) minmax(0, 0.346fr) !important; }
+  #sim-fsi .rm-row { display: contents !important; }
+}
+@media (max-width: 700px) {
+  #sim-fsi .rm-row { display: contents !important; }
+  #sim-fsi .rm-row .rm-thumb:has(.rm-frame[data-full*="sim-bounce"]) { grid-column: 1 / -1; width: 130px !important; max-width: 130px !important; margin: 4px auto 0 !important; }
+}
