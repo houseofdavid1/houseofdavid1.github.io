@@ -1164,3 +1164,9 @@ a.rov-box:hover { border-color: var(--c, var(--accent)); box-shadow: 0 8px 20px 
   .rb-galrow { flex-direction: column; gap: 14px; }
   .rm-gal { flex: none !important; width: 100%; max-width: none !important; }
 }
+/* text-first block: use the full width */
+.rb-below .rb-text2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 44px; align-items: start; }
+.rb-below .rb-text2 .rb-sum { grid-column: 1 / -1; max-width: none; }
+.rb-below .rb-text2 .rb-col { min-width: 0; }
+.rb-below .rb-text2 .rb-spec, .rb-below .rb-text2 .rb-pubs { grid-column: auto; grid-row: auto; }
+@media (max-width: 900px) { .rb-below .rb-text2 { display: block; } }
