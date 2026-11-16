@@ -712,9 +712,9 @@ h3 .h-ko { font-size: 14px; margin-top: 3px; }
 .rm figcaption { margin-top: 9px; font-size: 13px; line-height: 1.55; color: var(--muted); }
 .rm-main figcaption { padding-left: 12px; border-left: 3px solid var(--c); color: var(--body); }
 .rm-row { display: grid; gap: 14px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.rm-row.rm-n1 { grid-template-columns: minmax(0, 1fr); }
+.rm-row.rm-n1 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .rm-row.rm-n3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.rm-row.rm-n1 .rm-thumb { max-width: 78%; }
+
 .rm-thumb .rm-frame { aspect-ratio: 4 / 3 !important; border-radius: 12px; box-shadow: 0 6px 16px rgba(23,33,58,0.08); }
 .rm-thumb.rm-fig .rm-frame { padding: 6px; }
 .rm-thumb figcaption { font-size: 12px; line-height: 1.45; margin-top: 7px; }
