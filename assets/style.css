@@ -1164,9 +1164,26 @@ a.rov-box:hover { border-color: var(--c, var(--accent)); box-shadow: 0 8px 20px 
   .rb-galrow { flex-direction: column; gap: 14px; }
   .rm-gal { flex: none !important; width: 100%; max-width: none !important; }
 }
-/* text-first block: use the full width */
-.rb-below .rb-text2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 44px; align-items: start; }
-.rb-below .rb-text2 .rb-sum { grid-column: 1 / -1; max-width: none; }
-.rb-below .rb-text2 .rb-col { min-width: 0; }
-.rb-below .rb-text2 .rb-spec, .rb-below .rb-text2 .rb-pubs { grid-column: auto; grid-row: auto; }
-@media (max-width: 900px) { .rb-below .rb-text2 { display: block; } }
+/* balanced two-column text (text-first and wide blocks) */
+.rb-wide .rb-text2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 44px; align-items: start; }
+.rb-wide .rb-text2 .rb-sum { grid-column: 1 / -1; grid-row: auto; max-width: none; }
+.rb-wide .rb-text2 .rb-col { min-width: 0; }
+.rb-wide .rb-text2 .rb-rows, .rb-wide .rb-text2 .rb-spec, .rb-wide .rb-text2 .rb-pubs, .rb-wide .rb-text2 .rq { grid-column: auto; grid-row: auto; }
+@media (max-width: 900px) { .rb-wide .rb-text2 { display: block; } }
+
+/* text wraps around a floated figure */
+.rb-wrap .rb-body { display: flow-root; }
+.rb-wrap .rb-media { float: left; width: 47%; margin: 4px 44px 14px 0; display: block; }
+.rb.rb-wrap:nth-of-type(even) .rb-media { float: right; margin: 4px 0 14px 44px; }
+.rb-wrap .rb-text { display: block; }
+.rb-wrap .rb-rows { display: block; }
+.rb-wrap .rb-row { display: block; margin-bottom: 14px; }
+.rb-wrap .rb-row dt { display: inline-block; padding: 2px 10px; margin: 0 0 6px; }
+.rb-wrap .rb-row dd { display: block; }
+.rb-wrap .rb-spec, .rb-wrap .rb-pubs, .rb-wrap .rq { clear: both; }
+#panel-sim .rb-wrap .rb-facts-flow { display: block; clear: both; }
+@media (max-width: 900px) { .rb-wrap .rb-media, .rb.rb-wrap:nth-of-type(even) .rb-media { float: none; width: 100%; margin: 0 0 22px; } }
+#panel-sim .rb-wide .rb-text2 { display: grid; }
+#panel-sim .rb-wide .rb-text2 .rb-spec, #panel-sim .rb-wide .rb-text2 .rb-pubs { grid-row: auto; }
+@media (max-width: 900px) { #panel-sim .rb-wide .rb-text2 { display: block; } }
+@media (min-width: 901px) { .rb .rb-body[style*="--gc"] { grid-template-columns: var(--gc) !important; } }
