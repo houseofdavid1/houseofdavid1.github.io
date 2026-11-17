@@ -1266,3 +1266,4 @@ a.rov-box:hover { border-color: var(--c, var(--accent)); box-shadow: 0 8px 20px 
   .rbx-fl, .rbx-fl-l, .rbx-fl-r { float: none; width: 100% !important; max-width: none; margin: 0 0 20px; display: flex; justify-content: center; }
 }
 .page-hero p { word-break: keep-all; }
+.rm figcaption { word-break: keep-all; overflow-wrap: break-word; }

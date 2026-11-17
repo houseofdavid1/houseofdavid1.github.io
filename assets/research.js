@@ -1,7 +1,7 @@
 (function () {
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.rt-tab'));
   if (!tabs.length) return;
-  var LEGACY = { 'r-monitor': 'ai-monitor', 'r-surrogate': 'ai-surrogate', 'r-v2c': 'ai-v2c', 'ht': 'proc', 'weld': 'proc', 'uf': 'proc', 'ai-reflect': 'ai-lipss', 'uf-tcf': 'uf-pld', 'ai-defect': 'ai-bead' };
+  var LEGACY = { 'r-monitor': 'ai-monitor', 'r-surrogate': 'ai-surrogate', 'r-v2c': 'ai-v2c', 'ht': 'proc', 'weld': 'proc', 'uf': 'proc', 'ai-reflect': 'ai-lipss', 'uf-tcf': 'uf-pld', 'ai-defect': 'ai-bead', 'sim-keyhole': 'sim' };
   var panels = Array.prototype.slice.call(document.querySelectorAll('.rp-panel'));
   var fbtns = Array.prototype.slice.call(document.querySelectorAll('.rf-b'));
   var fcount = document.querySelector('.rf-n');
