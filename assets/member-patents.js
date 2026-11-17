@@ -19,7 +19,7 @@ window.MEMBER_PATENTS = {
   "yeonsu-kim": { token: "Y. Kim", items: [
     { en: "Laser processing apparatus and method",
       ko: "레이저 가공 장치 및 방법",
-      inventors: ["H. Ki", "Y. Kim"], no: "10-3031265", reg: "2026.10.06" }
+      inventors: ["H. Ki", "Y. Kim"], url: "https://patents.google.com/patent/KR103031265B1/ko", no: "10-3031265", reg: "2026.10.06" }
   ] }
 };
 window.renderPatent = function (p, token) {
