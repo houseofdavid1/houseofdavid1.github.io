@@ -1280,3 +1280,5 @@ a.rov-box:hover { border-color: var(--c, var(--accent)); box-shadow: 0 8px 20px 
 .pp-list .pub-ko { font-size: 12.5px; }
 @media (max-width: 600px) { .pd-sec { padding: 14px 18px 2px; } }
 .pp-sec.pp-sec-first { margin-top: 4px; padding-top: 4px; border-top: none; }
+/* visitor counter pixel (GoatCounter, no JavaScript) */
+.gc-px { position: absolute; left: 0; bottom: 0; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
