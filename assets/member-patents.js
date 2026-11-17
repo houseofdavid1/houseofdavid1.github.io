@@ -3,6 +3,9 @@
    The member's own name is highlighted automatically (token below). Newest first. */
 window.MEMBER_PATENTS = {
   "kimoon-nam": { token: "K. Nam", items: [
+    { en: "Welding process monitoring apparatus and method",
+      ko: "용접공정 모니터링 장치 및 방법",
+      inventors: ["H. Ki", "K. Nam"], no: "10-2986065", reg: "2026.06.30" },
     { en: "Laser welding monitoring apparatus, method and system using prediction of laser absorptance in a keyhole",
       ko: "키홀 내 레이저 흡수율 예측을 통한 레이저 용접 모니터링 장치, 방법 및 시스템",
       inventors: ["H. Ki", "K. Nam"], no: "10-2844769", reg: "2025.08.06" }
