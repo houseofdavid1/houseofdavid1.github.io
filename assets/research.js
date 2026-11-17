@@ -166,6 +166,11 @@
     var el = h && document.getElementById(h);
     if (el && el.classList.contains('rb')) { show(el.closest('.rp-panel').id.replace('panel-', ''), h, false); return; }
     show(h, null, false);
+    if (h && tabs.some(function (t) { return t.dataset.tab === h; })) {
+      // a link to a research area (e.g. from the home page) opens at that tab's first screen
+      var top = bar.getBoundingClientRect().top + window.scrollY - (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hdr-h')) || 0);
+      window.scrollTo(0, Math.max(0, top));
+    }
   }
   window.addEventListener('hashchange', fromHash);
   fromHash();
