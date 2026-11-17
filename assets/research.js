@@ -1,7 +1,7 @@
 (function () {
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.rt-tab'));
   if (!tabs.length) return;
-  var LEGACY = { 'r-monitor': 'ai-monitor', 'r-surrogate': 'ai-surrogate', 'r-v2c': 'ai-v2c', 'ht': 'proc', 'weld': 'proc', 'uf': 'proc' };
+  var LEGACY = { 'r-monitor': 'ai-monitor', 'r-surrogate': 'ai-surrogate', 'r-v2c': 'ai-v2c', 'ht': 'proc', 'weld': 'proc', 'uf': 'proc', 'ai-reflect': 'ai-lipss', 'uf-tcf': 'uf-pld', 'ai-defect': 'ai-bead' };
   var panels = Array.prototype.slice.call(document.querySelectorAll('.rp-panel'));
   var fbtns = Array.prototype.slice.call(document.querySelectorAll('.rf-b'));
   var fcount = document.querySelector('.rf-n');
@@ -139,6 +139,24 @@
       var k = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
       if (!k) return; e.preventDefault();
       var n = tabs[(i + k + tabs.length) % tabs.length]; n.focus(); n.click();
+    });
+  });
+  // fold / unfold block details
+  document.querySelectorAll('.rbx-more').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var d = document.getElementById(btn.getAttribute('aria-controls'));
+      var open = btn.getAttribute('aria-expanded') !== 'true';
+      d.hidden = !open;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.querySelector('.rbx-more-l').textContent = open ? '접기' : '자세히 보기';
+      d.querySelectorAll('video').forEach(function (v) {
+        if (open) { if (io) { io.unobserve(v); io.observe(v); } } else if (!v.paused) v.pause();
+      });
+      if (!open) {
+        var art = btn.closest('.rb'), off = (bar ? bar.offsetHeight : 0) + (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hdr-h')) || 0);
+        var top = art.getBoundingClientRect().top;
+        if (top < off) window.scrollTo({ top: top + window.scrollY - off - 8, behavior: 'smooth' });
+      }
     });
   });
   function fromHash() {
