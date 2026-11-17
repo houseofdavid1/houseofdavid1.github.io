@@ -1288,3 +1288,12 @@ a.rov-box:hover { border-color: var(--c, var(--accent)); box-shadow: 0 8px 20px 
 .pd-thesis .thesis-label { font-size: 11.5px; margin-bottom: 6px; }
 .pd-thesis .thesis-title { font-size: 16px; line-height: 1.6; }
 @media (max-width: 600px) { .pd-thesis { padding: 16px 18px 8px; } }
+
+/* Research: two representative figures side by side above the text (same height) */
+.rbx-pair { display: flex; gap: 24px; align-items: flex-start; width: 100%; margin: 0 auto; }
+.rbx-pair .rm-pair { min-width: 0; }
+@media (max-width: 640px) {
+  .rbx-pair { flex-direction: column; gap: 18px; }
+  .rbx-pair .rm-pair { flex: none !important; width: 100%; }
+  .rbx-pair .rm-pair-tall { width: 80%; align-self: center; }
+}
