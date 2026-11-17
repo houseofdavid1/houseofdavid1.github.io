@@ -24,8 +24,14 @@
       } else if (!v.paused) { v.pause(); }
     });
   }, { threshold: 0.35 }) : null;
+  // posters load only when a video comes near the screen (hidden tabs / folded panels cost nothing)
+  function setPoster(v) { if (!v.poster && v.dataset.poster) v.poster = v.dataset.poster; }
+  var pio = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { setPoster(e.target); pio.unobserve(e.target); } });
+  }, { rootMargin: '800px 0px' }) : null;
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('.rm-video video').forEach(function (v) {
+    if (pio) pio.observe(v); else setPoster(v);
     if (reduce || !io) {
       v.controls = true; v.preload = 'none';
       v.addEventListener('play', function () { if (!v.src) v.src = v.dataset.src; }, { once: true });
@@ -45,7 +51,7 @@
         if (b.dataset.kind === 'v') {
           el = document.createElement('video');
           el.src = b.dataset.full; el.controls = true; el.loop = true; el.muted = true; el.autoplay = true; el.playsInline = true;
-          var pv = b.querySelector('video'); if (pv && pv.poster) el.poster = pv.poster;
+          var pv = b.querySelector('video'); if (pv && (pv.poster || pv.dataset.poster)) el.poster = pv.poster || pv.dataset.poster;
         } else {
           el = document.createElement('img'); el.src = b.dataset.full; el.alt = fc ? fc.textContent : '';
         }
