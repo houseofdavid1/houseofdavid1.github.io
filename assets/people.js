@@ -12,8 +12,18 @@
   var secs = dialog.querySelectorAll('.pd-sec');
   var patSec = dialog.querySelector('.pd-sec-pat'), patEl = dialog.querySelector('.pd-pat');
 
+  var thesisEl = dialog.querySelector('.pd-thesis');
+  var legendEl = dialog.querySelector('.pd-legend');
+  function showDialog() {
+    body.scrollTop = 0;
+    if (typeof dialog.showModal === 'function') dialog.showModal(); else dialog.setAttribute('open', '');
+    document.body.classList.add('dialog-open');
+  }
   // one pop-up for everyone: current-member cards and the alumni table
   function openPubs(name, papersHTML, patentsHTML) {
+    if (thesisEl) { thesisEl.hidden = true; thesisEl.innerHTML = ''; }
+    if (legendEl) legendEl.hidden = false;
+    listEl.hidden = false;
     titleEl.textContent = name;
     countEl.textContent = '';
     listEl.innerHTML = papersHTML || '';
@@ -21,9 +31,18 @@
     if (patEl) { patEl.innerHTML = hasPat ? patentsHTML : ''; patEl.hidden = !hasPat; }
     for (var i = 0; i < secs.length; i++) secs[i].hidden = !hasPat || (secs[i].classList.contains('pd-sec-pap') && !papersHTML);
     if (eyebrow) eyebrow.textContent = hasPat ? 'PUBLICATIONS & PATENTS' : 'PUBLICATIONS';
-    body.scrollTop = 0;
-    if (typeof dialog.showModal === 'function') dialog.showModal(); else dialog.setAttribute('open', '');
-    document.body.classList.add('dialog-open');
+    showDialog();
+  }
+  // thesis / dissertation titles in the same pop-up
+  function openThesis(name, items, plural) {
+    titleEl.textContent = name; countEl.textContent = '';
+    if (eyebrow) eyebrow.textContent = plural ? 'THESES' : 'THESIS';
+    if (legendEl) legendEl.hidden = true;
+    for (var i = 0; i < secs.length; i++) secs[i].hidden = true;
+    listEl.innerHTML = ''; listEl.hidden = true;
+    if (patEl) { patEl.innerHTML = ''; patEl.hidden = true; }
+    thesisEl.innerHTML = items; thesisEl.hidden = false;
+    showDialog();
   }
 
   document.querySelectorAll('.pub-btn').forEach(function (btn) {
@@ -58,6 +77,18 @@
       e.preventDefault();
       document.querySelectorAll('details.thesis-box[open]').forEach(function (o) { o.open = false; });
       openPubs(name, papersHTML, patentsHTML);
+    });
+  });
+
+  // alumni "Thesis" chips: same pop-up (a drop-down under the chip gets cut off or covered on phones)
+  if (thesisEl) document.querySelectorAll('#alumni details.thesis-box:not(.pubs-box)').forEach(function (d) {
+    var pop = d.querySelector('.thesis-pop'); if (!pop) return;
+    var name = d.closest('tr').querySelector('td').textContent;
+    var items = pop.innerHTML, plural = pop.querySelectorAll('.thesis').length > 1;
+    d.querySelector('summary').addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelectorAll('details.thesis-box[open]').forEach(function (o) { o.open = false; });
+      openThesis(name, items, plural);
     });
   });
 
