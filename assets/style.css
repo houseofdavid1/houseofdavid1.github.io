@@ -1072,8 +1072,9 @@ a.rov-box:hover { border-color: var(--c, var(--accent)); box-shadow: 0 8px 20px 
 .rov-box small { font-size: 10.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--c, var(--muted)); }
 .rov-box b { font-size: 16px; line-height: 1.3; color: var(--navy); }
 .rov-box > span { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
-.rov-src { --c: var(--mint); background: var(--mint-soft); border-color: transparent; }
-.rov-proc { --c: var(--coral-text); background: var(--coral-soft); border-color: transparent; }
+.rov-src { --c: var(--mint); background: #FFFFFF; border: 1.5px solid var(--mint-line); box-shadow: 0 4px 14px rgba(15,124,122,0.08); }
+.rov-proc { --c: var(--coral-text); background: var(--coral-soft); border: 1.5px solid #F5CFC2; }
+.rov-box > span { word-break: keep-all; }
 .rov-ai { --c: #FFFFFF; background: linear-gradient(135deg, var(--navy), var(--accent)); border: 0; color: #FFFFFF; box-shadow: 0 10px 24px rgba(23,33,58,0.18); }
 .rov-ai small { color: rgba(255,255,255,0.7); }
 .rov-ai b { color: #FFFFFF; font-size: 17px; }
