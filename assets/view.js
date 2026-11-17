@@ -74,12 +74,12 @@
     b.innerHTML = (desk ? ICON_PHONE : ICON_DESK) + '<span>' + (desk ? '모바일 화면으로 보기' : '데스크톱 화면으로 보기') + '</span>';
     b.addEventListener('click', function () { set(desk ? 'mobile' : 'desktop'); });
     document.body.appendChild(b);
-    var last = window.scrollY;
+    // hidden while the page is scrolling (it would cover text), back once scrolling stops
+    var idle = null;
     window.addEventListener('scroll', function () {
-      var y = window.scrollY, end = y + innerHeight >= document.documentElement.scrollHeight - 40;
-      if (y > last + 4 && y > 200 && !end) b.classList.add('vm-hide');
-      else if (y < last - 4 || end) b.classList.remove('vm-hide');
-      last = y;
+      b.classList.add('vm-hide');
+      clearTimeout(idle);
+      idle = setTimeout(function () { b.classList.remove('vm-hide'); }, 700);
     }, { passive: true });
   });
 })();
