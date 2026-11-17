@@ -1299,3 +1299,8 @@ a.rov-box:hover { border-color: var(--c, var(--accent)); box-shadow: 0 8px 20px 
   .rbx-pair .rm-pair { flex: none !important; width: 100%; }
   .rbx-pair .rm-pair-tall { width: 80%; align-self: center; }
 }
+
+/* Research: representative papers sit at the very end of each block, after the equations */
+.rb > .rb-pubs { margin: 22px 0 0; }
+.rb > .rq + .rb-pubs { margin-top: 16px; }
+.rb-foot .rb-fr:empty { display: none; }
