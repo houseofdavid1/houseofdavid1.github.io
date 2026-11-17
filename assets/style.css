@@ -1240,3 +1240,27 @@ a.rov-box:hover { border-color: var(--c, var(--accent)); box-shadow: 0 8px 20px 
 .rbx-detail .rq .rq-eqs { display: block; }
 .rbx-detail .rq .rq-eq .katex { font-size: 1.05em; }
 @media (max-width: 600px) { .rbx-detail .rq { padding: 16px 14px 10px; } }
+/* Research blocks: abstract text visible, figure floated (text wraps), only extra figures/equations folded */
+.rbx-body { display: flow-root; }
+.rbx-fl { display: block; max-width: 48%; margin-bottom: 16px; }
+.rbx-fl-l { float: left; margin-right: 38px; }
+.rbx-fl-r { float: right; margin-left: 38px; }
+.rbx-fl .rm-top { max-width: 100% !important; }
+.rbx-stack > .rbx-fig { margin-bottom: 24px; }
+.rb-abs p { margin: 0 0 14px; font-size: 16px; line-height: 1.85; color: var(--ink); word-break: keep-all; overflow-wrap: break-word; }
+.rb-abs p:last-child { margin-bottom: 0; }
+.rb-abs code { font-size: 0.88em; }
+.rbx-stack .rb-abs { columns: 2; column-gap: 44px; }
+.rbx-stack .rb-abs p { break-inside: auto; }
+.rb-foot { display: flow-root; margin-top: 20px; }
+.rb-foot .rb-spec { margin-bottom: 12px; }
+.rb-fr { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px 14px; }
+.rb-fr .rb-pubs { flex: 1 1 340px; min-width: 0; margin: 0; }
+.rb-fr .rbx-more { flex: none; padding-top: 11px; padding-bottom: 11px; }
+.rbx-nofig .rb-abs { max-width: 900px; }
+@media (max-width: 900px) {
+  .rbx-stack .rb-abs { columns: 1; }
+}
+@media (max-width: 760px) {
+  .rbx-fl, .rbx-fl-l, .rbx-fl-r { float: none; width: 100% !important; max-width: none; margin: 0 0 20px; display: flex; justify-content: center; }
+}

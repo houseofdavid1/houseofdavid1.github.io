@@ -148,14 +148,14 @@
       var open = btn.getAttribute('aria-expanded') !== 'true';
       d.hidden = !open;
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      btn.querySelector('.rbx-more-l').textContent = open ? '접기' : '자세히 보기';
+      btn.querySelector('.rbx-more-l').textContent = open ? '접기' : (btn.dataset.l || '자세히 보기');
       d.querySelectorAll('video').forEach(function (v) {
         if (open) { if (io) { io.unobserve(v); io.observe(v); } } else if (!v.paused) v.pause();
       });
       if (!open) {
-        var art = btn.closest('.rb'), off = (bar ? bar.offsetHeight : 0) + (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hdr-h')) || 0);
-        var top = art.getBoundingClientRect().top;
-        if (top < off) window.scrollTo({ top: top + window.scrollY - off - 8, behavior: 'smooth' });
+        var off = (bar ? bar.offsetHeight : 0) + (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hdr-h')) || 0);
+        var top = btn.getBoundingClientRect().top;
+        if (top < off) window.scrollTo({ top: top + window.scrollY - off - 80, behavior: 'smooth' });
       }
     });
   });
