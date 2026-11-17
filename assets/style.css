@@ -1271,11 +1271,12 @@ a.rov-box:hover { border-color: var(--c, var(--accent)); box-shadow: 0 8px 20px 
 .pub-btn.pub-btn-off, .pub-btn.pub-btn-off:hover { cursor: default; background: var(--accent-soft); border-color: var(--accent-soft-line); color: var(--accent); transform: none; }
 .pub-btn.pub-btn-off:hover .pub-btn-chev { transform: none; }
 /* member pop-up: papers + patents in one scroll area */
-.pd-body { overflow-y: auto; padding-bottom: 8px; }
+.pd-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding-bottom: 8px; }
 .pd-body .pd-list { overflow: visible; }
 .pd-sec { margin: 0; padding: 16px 28px 2px; font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--coral-text); }
-.pd-sec-pat { margin-top: 6px; border-top: 1px solid var(--line); padding-top: 18px; }
+.pd-sec-pap { margin-top: 6px; border-top: 1px solid var(--line); padding-top: 18px; }
 .pub-ko { display: block; font-size: 13.5px; color: var(--muted); margin: 1px 0 2px; }
 .pp-sec { margin: 10px 0 0; padding-top: 10px; border-top: 1px solid var(--line); font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--coral-text); }
 .pp-list .pub-ko { font-size: 12.5px; }
 @media (max-width: 600px) { .pd-sec { padding: 14px 18px 2px; } }
+.pp-sec.pp-sec-first { margin-top: 4px; padding-top: 4px; border-top: none; }

@@ -4,7 +4,7 @@
   if (!dialog) return;
   var titleEl = dialog.querySelector('.pd-name');
   var countEl = dialog.querySelector('.pd-count');
-  var listEl = dialog.querySelector('.pd-list');
+  var listEl = dialog.querySelector('.pd-list:not(.pd-pat)');
 
   var pats = window.MEMBER_PATENTS || {};
   var eyebrow = dialog.querySelector('.pd-eyebrow');
