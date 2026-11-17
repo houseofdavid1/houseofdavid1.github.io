@@ -8,10 +8,10 @@
 - main=[V(..), V(..)] → 대표 그림 두 개를 글 위에 같은 높이로 나란히 배치 (PAIR_H)
   동영상: <repo>/assets/research/NAME.mp4 (+ 포스터 NAME.jpg) → V("NAME", "설명")
 - pubs의 번호는 publications.html의 data-n 번호 (제목·저자·저널은 거기서 자동으로 가져옴)
-- 화면 구성(블록마다 같음): 제목 → 대표 그림(main, 좌우 번갈아 배치, 글이 그림을 둘러쌈) + 초록(text) → Setup
+- 화면 구성(블록마다 같음): 제목 → 대표 그림(main, 좌우 번갈아 배치, 글이 그림을 둘러쌈) + 초록(text)
          → "그림 더 보기" 버튼을 누르면 나머지 그림(side)만 펼쳐짐 (side가 없으면 버튼 없음)
          → 수식 상자(EQ)는 접지 않고 항상 표시 → 관련 논문(pubs, 기본으로 접힘)이 블록 맨 아래
-- stats=[...] → 현재 화면에 표시하지 않음 (핵심 수치 메모용)
+- stats=[...], spec="..." → 현재 화면에 표시하지 않음 (핵심 수치·실험 조건 메모용)
 - FLOAT_H, FLOAT_W, TOP_H, GAL_H → 대표 그림·펼친 그림의 최대 크기 / STACK_AR → 이보다 가로로 긴 대표 그림은 글 위에 배치
 - 수식 상자: EQ = {...}  (TAGS는 현재 화면에 표시하지 않음)
 - research.js, style.css 버전 번호(?v=)를 바꾸면 브라우저 캐시가 갱신됨
@@ -573,7 +573,7 @@ for t in TABS:
         link = f'<a href="#{b["id"]}"><span>{k:02d}</span>{E(b["ko"])}</a>'
         (groups[-1][1] if groups else toc).append(link)
         paras = "".join(f"<p>{x}</p>" for x in b["text"])
-        spec = f'<p class="rb-spec"><span>Setup</span>{E(b["spec"])}</p>' if b["spec"] else ""
+        spec = ""   # SETUP line removed from the page (2026-11); b["spec"] kept below only as a memo
         pubs = (f'<details class="rb-pubs"><summary>관련 논문 <span>{len(b["pubs"])}</span></summary>{papers(b["pubs"])}</details>' if b["pubs"] else "")
         tg = TAGS.get(b["id"], [])
         head = (f'<header class="rb-head"><span class="rb-num">{k:02d}</span><div><h3>{E(b["en"])}</h3>'
