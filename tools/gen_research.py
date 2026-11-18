@@ -50,8 +50,8 @@ def fdims(name):
 
 # Display caps (CSS px) so low-resolution sources are never blown up past ~1.3x their native size.
 HMAX = {"sim-bounce": 560, "wj-coupling": 470, "sim-fdtd-demo": 504, "ai-monitor-demo": 504, "ai-bead-demo": 504, "weld-keyhole-demo": 504, "weld-foil-demo": 504, "sim-fsi-demo": 504, "uf-phase-map": 480,   # px: per-figure height limit (floated or stacked)
-        "ht-duo": 560, "v2c-demo": 540, "sim-fs-compare": 460, "sim-plasma4": 340}
-FORCE_STACK = {"ht-duo", "v2c-demo", "sim-fs-compare", "sim-fdtd-demo", "ai-monitor-demo", "ai-bead-demo", "weld-keyhole-demo", "weld-foil-demo", "sim-fsi-demo"}   # always put these above the text
+        "ht-duo": 560, "sim-fs-compare": 460, "sim-plasma4": 340}
+FORCE_STACK = {"ht-duo", "sim-fs-compare", "sim-fdtd-demo", "ai-monitor-demo", "ai-bead-demo", "weld-keyhole-demo", "weld-foil-demo", "sim-fsi-demo"}   # always put these above the text
 WMAX = {}   # px: fixed display width for stacked figures (Process Monitoring 01·02 same width)
 CAP = {"ai-keyhole-detect": 420, "sim-lid": 600,  "weld-coaxial-grid": 620, "ai-defect": 640}
 MAIN_MAX_H = 420  # px: tallest a main item may be
@@ -259,7 +259,6 @@ TABS = [
    dict(id="ai-v2c", en="Vision-to-Code Autonomous Laser Welding", ko="Vision-to-Code 자율 레이저 용접",
     main=F("ai-v2c-arch", "Vision-to-Code 모델 개략도: 용접선 영상 → CNN 영상 인코더 → 시맨틱 검색 모듈 + 비자기회귀 Transformer 디코더 → DSL 토크나이저 → 실행 가능한 코드 토큰을 한 번에 생성"),
     side=[F("ai-v2c-concept", "작동 방식: 프레임마다 용접선 영상을 찍으면 모델이 목표 위치와 해야 할 작업을 인식해 C# 코드를 생성하고, 이 코드를 컴파일·실행해 3축 스테이지와 파이버 레이저를 움직입니다. 첫 프레임에서는 시작점을 정렬하고(alignToStart), 이어서 용접선을 추적하며(seamTracking), 마지막 프레임에서는 끝점 정렬 뒤 원점으로 돌아가 용접을 시작합니다"),
-          V("v2c-demo", "3D 자율 용접 시연: 카메라 영상(오른쪽 위)만 보고 모델이 생성한 제어 코드(오른쪽 아래)로 3축 스테이지가 굴곡진 용접선을 따라 움직이며 용접합니다"),
           F("ai-v2c-result", "3D 확장 결과: (a) 실측 3차원 용접선(검정)과 AI가 생성한 경로(빨강), (b) 굴곡진 협개선 맞대기 시편, (c) 평면(x–y) 경로, (d) 높이(z) 경로 — 생성 경로가 레이저 초점 심도(파랑 실선)와 카메라 피사계 심도(파랑 점선) 안에 듭니다")],
     text=["기존 자동 용접선 추적은 영상 처리로 용접선을 찾고, 정해 둔 규칙으로 위치를 보정하고, 장비 프로그램을 따로 짜는 여러 단계로 나뉘어 있어, 작업이 바뀔 때마다 사람이 규칙과 프로그램을 다시 만들어야 합니다. 본 연구실이 제안한 Vision-to-Code는 카메라 영상 한 장을 보고 장비가 바로 실행할 제어 코드를 생성해, 이 단계들을 하나의 딥러닝 모델로 합칩니다. 영상을 보고 판단해 행동까지 만들어 내는 Vision-Language-Action(VLA) 개념을 용접선 추적에 처음 도입한 Physical AI 연구입니다.",
           "이 방식에는 세 가지 장점이 있습니다. 첫째, 영상 처리 규칙이나 정렬 로직을 손으로 만들 필요가 없는 end-to-end 구조입니다. 둘째, 출력이 좌표값이 아니라 실행 가능한 코드이므로 용접선 추적뿐 아니라 시작점 정렬, 용접 시작, 원점 복귀, 용접선 미검출 경고처럼 무엇을 어떤 순서로 할지까지 한 번에 정합니다. 셋째, 라인 레이저 방식은 0.1 mm보다 좁은 틈에서 추적이 어렵지만, 이 모델은 한 픽셀에 해당하는 20 µm 틈까지 찾아 빔이 아주 작은 레이저 용접에 유리합니다. 제어 함수만 정의하면 같은 틀을 다른 장비와 공정으로 넓힐 수 있습니다.",
