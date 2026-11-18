@@ -15,6 +15,7 @@
 - FLOAT_H, FLOAT_W, TOP_H, GAL_H → 대표 그림·펼친 그림의 최대 크기 / STACK_AR → 이보다 가로로 긴 대표 그림은 글 위에 배치
 - 수식 상자: EQ = {...}  (TAGS는 현재 화면에 표시하지 않음)
 - research.js, style.css 버전 번호(?v=)를 바꾸면 브라우저 캐시가 갱신됨
+- 워터마크: WATERMARK = True/False (그림·동영상 위 반투명 글자), WM_BURNED = 파일에 직접 새긴 데모 동영상
 """
 import re, html, sys, json, subprocess, os
 from PIL import Image
@@ -54,6 +55,13 @@ FORCE_STACK = {"ht-duo", "v2c-demo", "sim-fs-compare", "sim-fdtd-demo", "ai-moni
 WMAX = {}   # px: fixed display width for stacked figures (Process Monitoring 01·02 same width)
 CAP = {"ai-keyhole-detect": 420, "sim-lid": 600,  "weld-coaxial-grid": 620, "ai-defect": 640}
 MAIN_MAX_H = 420  # px: tallest a main item may be
+
+# Watermark: a small translucent label on every research figure/video (also inside the enlarged view).
+# WATERMARK = False removes it everywhere. The six demo videos carry it burned into the file instead
+# (tools/watermark_demos.py), so they get no on-screen label.
+WATERMARK = True
+WM_TEXT = "© Laser Processing & AI Lab · UNIST"
+WM_BURNED = {"ai-monitor-demo", "ai-bead-demo", "weld-keyhole-demo", "weld-foil-demo", "sim-fsi-demo", "sim-fdtd-demo"}
 
 
 EQ = {'sim-keyhole': (['Level set (narrow band)', '광선 추적 · 다중 반사', 'Knudsen 층 증발', '혼합 연속체 모델', '유한체적법'], [('자유 표면 (level set)', '\\frac{\\partial \\phi}{\\partial t} + F_{lv}\\,|\\nabla\\phi| = 0,\\quad F_{lv}=F_e+\\mathbf{n}\\cdot\\mathbf{U},\\quad \\mathbf{n}=\\frac{\\nabla\\phi}{|\\nabla\\phi|}'), ('운동량', '\\rho\\Big(\\frac{\\partial \\mathbf{u}}{\\partial t}+\\mathbf{u}\\cdot\\nabla\\mathbf{u}\\Big)=-\\nabla p+\\nabla\\cdot(\\mu\\nabla\\mathbf{u})+\\big(\\sigma\\kappa\\,\\mathbf{n}+\\nabla_s\\sigma-p_r\\mathbf{n}\\big)\\,\\delta(\\phi)'), ('에너지', "\\frac{\\partial(\\rho C_p T)}{\\partial t}+\\mathbf{u}\\cdot\\nabla(\\rho C_p T)=k\\nabla^2 T+q''\\,\\delta(\\phi)")]), 'sim-ablation': (['Level set · 광선 추적', 'Knight 증발 모델', '고전 핵생성 이론', 'Redlich–Kwong 상태방정식', 'Watson · Somayajulu 물성 모델'], [('임계 기포 반경', 'R_{crit}=\\frac{2\\sigma}{p_{sat}(T_l)\\,\\exp\\!\\big[(p_l-p_{sat}(T_l))/(\\rho_l R T_l)\\big]-p_l}'), ('균일 핵생성', "\\dot H'''\\propto N_l\\exp\\!\\Big(-\\frac{4\\pi R_{crit}^2\\,\\sigma}{3k_BT_l}\\Big),\\qquad \\dot m'''_{boiling}=m_{bubble}\\,\\dot H'''"), ('증발 잠열 (Watson)', 'L_v(T)=L_{v,b}\\Big(\\frac{T_c-T}{T_c-T_b}\\Big)^{0.38}')]), 'sim-em': (['FDTD (Yee 격자)', 'Drude 분산 모델', 'PML 흡수 경계'], [('맥스웰 방정식', '\\frac{\\partial \\mathbf{H}}{\\partial t}=-\\frac{1}{\\mu}\\nabla\\times\\mathbf{E},\\qquad \\frac{\\partial \\mathbf{E}}{\\partial t}=\\frac{1}{\\varepsilon}\\big(\\nabla\\times\\mathbf{H}-\\mathbf{J}\\big)'), ('Drude 모델', '\\varepsilon(\\omega)=\\varepsilon_\\infty-\\frac{\\omega_p^2}{\\omega^2+i\\gamma\\omega}')]), 'sim-fs': (['BOR-FDTD', '2온도 모델', '이온화 · 전기전도도 모델', 'PML 흡수 경계'], [('전자기장', '\\frac{\\partial \\mathbf{E}}{\\partial t}=\\frac{1}{\\varepsilon}\\big(\\nabla\\times\\mathbf{H}-\\sigma(n_e,T_e)\\,\\mathbf{E}\\big),\\qquad \\frac{\\partial \\mathbf{H}}{\\partial t}=-\\frac{1}{\\mu}\\nabla\\times\\mathbf{E}'), ('2온도 모델', 'C_e\\frac{\\partial T_e}{\\partial t}=\\nabla\\cdot(k_e\\nabla T_e)-G(T_e-T_l)+S,\\qquad C_l\\frac{\\partial T_l}{\\partial t}=G(T_e-T_l)')]), 'sim-plasma': (['격자 볼츠만 방법 (BGK)', '재스케일링 기법', 'LBM–유한차분 혼합 MHD', 'Level set (자기장 속 2상 유동)'], [('입자 종별 LBM (s = e, i, n)', 'f_i^{s}(\\mathbf{x}+\\mathbf{c}_i\\Delta t,\\,t+\\Delta t)-f_i^{s}(\\mathbf{x},t)=-\\frac{1}{\\tau_s}\\big(f_i^{s}-f_i^{s,eq}\\big)+\\Delta t\\,F_i^{s}'), ('자기장 유도 방정식', '\\frac{\\partial \\mathbf{B}}{\\partial t}=\\nabla\\times(\\mathbf{u}\\times\\mathbf{B})+\\eta\\nabla^2\\mathbf{B}')]), 'sim-fsi': (['통합 운동량 방정식 (일체형)', '유한체적법', 'SIMPLE 알고리즘'], [('유체 · 고체 공통', '\\rho\\frac{\\partial \\mathbf{u}}{\\partial t}+\\rho\\nabla\\cdot(\\mathbf{u}\\mathbf{u})=\\nabla\\cdot\\boldsymbol{\\sigma}+\\mathbf{f}'), ('구성 방정식', '\\boldsymbol{\\sigma}_f=-p\\mathbf{I}+\\mu(\\nabla\\mathbf{u}+\\nabla\\mathbf{u}^{T}),\\qquad \\boldsymbol{\\sigma}_s=\\lambda\\,\\mathrm{tr}(\\boldsymbol{\\varepsilon})\\mathbf{I}+2G\\boldsymbol{\\varepsilon}')])}
@@ -105,9 +113,11 @@ def media(item, main, wide=False):
         inner = f'<img src="{full}" alt="{E(alt)}" loading="lazy" decoding="async">'
     cls = "rm " + ("rm-main" if main else "rm-thumb") + (" rm-video" if kind == "v" else " rm-fig")
     ar = f"{w}/{h}"
+    onscreen = WATERMARK and name not in WM_BURNED
+    wm = f'<span class="wm" aria-hidden="true">{E(WM_TEXT)}</span>' if onscreen else ""
     zoom = '<span class="rm-zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>'
     return (f'<figure class="{cls}"{st}><button type="button" class="rm-frame" style="aspect-ratio:{ar}" data-full="{full}" data-kind="{kind}" '
-            f'aria-label="크게 보기: {E(alt)}">{inner}{zoom}</button><figcaption>{cap}</figcaption></figure>')
+            f'aria-label="크게 보기: {E(alt)}">{inner}{zoom}{wm}</button><figcaption>{cap}</figcaption></figure>')
 
 
 def papers(nums):
@@ -666,6 +676,6 @@ t = re.sub(r'<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex[^>]
 if "katex.min.css" not in t:
     t = t.replace('<link rel="stylesheet" href="assets/style.css', '<link rel="stylesheet" href="assets/katex/katex.min.css?v=1">\n<link rel="stylesheet" href="assets/style.css', 1)
 t = re.sub(r'\n?<script src="assets/research\.js[^"]*"></script>', "", t)
-t = t.replace("</body>", '<script src="assets/research.js?v=12"></script>\n</body>', 1)
+t = t.replace("</body>", '<script src="assets/research.js?v=13"></script>\n</body>', 1)
 open(p, "w", encoding="utf-8").write(t)
 print("ok", sum(len(x["blocks"]) for x in TABS), "blocks")

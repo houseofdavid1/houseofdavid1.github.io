@@ -9,6 +9,7 @@
   - `main=V("NAME", "설명")` 대표 동영상 · `main=F(...)` 대표 그림 · `main=[V(..), V(..)]` 대표 두 개를 글 위에 나란히
   - 데모 동영상은 `FORCE_STACK`(글 위 배치)과 `HMAX`(504 → 폭 896px)에 이름을 넣음
 - `ktx.js` — 수식(KaTeX) 미리 렌더링 보조 스크립트. 처음 한 번 이 폴더에서 `npm install katex@0.16.11` 필요 (Node.js 필요).
+- `watermark_demos.py` — 데모 동영상 6편(+포스터)에 워터마크를 파일로 새기는 스크립트. 사용: `python3 watermark_demos.py <저장소 경로>`
 - `vbuild_reference.py` — 동영상 캡션 띠 스타일 참고용 (그대로 실행되지 않음).
 - `ht_duo_reference.py` — Process Monitoring 03의 열처리 합성 동영상(ht-duo.mp4) 제작 참고용 (그대로 실행되지 않음).
 - `demo_kit_reference.py`, `demos_reference.py`, `fdtd_demo_reference.py` — 여러 영상·그림을 장면별 설명과 함께 한 편으로 엮은 "데모" 동영상 제작 스크립트 (참고용, 원본 소스 파일 경로가 작업 환경 기준이라 그대로 실행되지 않음).
@@ -35,6 +36,9 @@
 ## 이미지·동영상 보호 (모든 페이지)
 - `assets/view.js` 맨 아래: 그림·동영상에서 마우스 오른쪽 버튼("다른 이름으로 저장")과 끌어서 저장 차단, 동영상의 다운로드·PIP 버튼 제거. `assets/style.css` 맨 아래: 휴대폰에서 길게 눌러 저장 차단.
 - 억지 효과만 있음: 화면 캡처, 개발자 도구, 공개 저장소(GitHub)에서 직접 받는 것은 막을 수 없음.
+- **워터마크** "© Laser Processing & AI Lab · UNIST" — 캡처해도 출처가 남도록 항상 표시됨 (캡처할 때만 나타나게 하는 것은 웹에서 불가능).
+  - 화면 워터마크: Research의 모든 그림·동영상(크게 보기 창 포함)과 Home 동영상 위에 반투명 글자. 파일은 그대로. 끄기: `gen_research.py`에서 `WATERMARK = False`로 바꿔 다시 생성하고, `index.html`의 `<span class="wm">` 한 줄 삭제 (또는 `style.css`에 `.wm { display: none; }` 한 줄 추가).
+  - 파일에 새긴 워터마크: 데모 동영상 6편과 포스터(오른쪽 위 띠). `watermark_demos.py`로 만듦. 되돌리기: 저장소에서 `git checkout 360af67 -- assets/research/이름.mp4 assets/research/이름.jpg` (6편 각각), 그리고 `gen_research.py`의 `WM_BURNED`를 비우고 다시 생성.
 
 ## 방문자 통계
 - GoatCounter (계정 이름 ptlresearch, 대시보드 https://ptlresearch.goatcounter.com).

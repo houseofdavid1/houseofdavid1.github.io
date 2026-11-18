@@ -55,7 +55,10 @@
         } else {
           el = document.createElement('img'); el.src = b.dataset.full; el.alt = fc ? fc.textContent : '';
         }
-        body.appendChild(el); cap.textContent = fc ? fc.textContent : '';
+        var wm = b.querySelector('.wm');
+        if (wm) { var box = document.createElement('span'); box.className = 'wm-box'; box.appendChild(el); box.appendChild(wm.cloneNode(true)); body.appendChild(box); }
+        else body.appendChild(el);
+        cap.textContent = fc ? fc.textContent : '';
         document.querySelectorAll('.rp-panel video').forEach(function (v) { if (!v.paused) v.pause(); });
         if (typeof lb.showModal === 'function') lb.showModal(); else lb.setAttribute('open', '');
         document.body.classList.add('dialog-open');

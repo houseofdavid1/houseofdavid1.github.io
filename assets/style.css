@@ -1307,3 +1307,14 @@ a.rov-box:hover { border-color: var(--c, var(--accent)); box-shadow: 0 8px 20px 
 
 /* media protection: no drag-out, no long-press save menu, no selection highlight */
 img, video { -webkit-user-drag: none; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
+
+/* watermark: small translucent label on research figures/videos, the enlarged view and the home video.
+   Remove: set WATERMARK = False in tools/gen_research.py, or add  .wm { display: none; }  */
+.rm-frame { container-type: inline-size; }
+.wm { position: absolute; left: 8px; bottom: 8px; z-index: 3; pointer-events: none; -webkit-user-select: none; user-select: none;
+  padding: 3px 8px; border-radius: 999px; background: rgba(14,21,38,0.40); color: rgba(255,255,255,0.90);
+  font: 600 clamp(8px, 2.2cqi, 11.5px)/1.25 Inter, "Pretendard", system-ui, sans-serif; letter-spacing: 0.01em; white-space: nowrap; }
+.wm-box { position: relative; display: inline-block; max-width: 100%; }
+.wm-box .wm { left: 10px; bottom: 10px; font-size: 12.5px; }
+.hm-frame .wm { left: auto; right: 16px; top: 18px; bottom: auto; font-size: 11.5px; }
+.wm-box video ~ .wm { bottom: 56px; }   /* clear of the video control bar */
