@@ -32,6 +32,10 @@
 - `people.html` — 졸업생 표(학위·Thesis·논문·특허 팝업 내용 포함)
 - `sitemap.xml`, `robots.txt` — 검색엔진용
 
+## 이미지·동영상 보호 (모든 페이지)
+- `assets/view.js` 맨 아래: 그림·동영상에서 마우스 오른쪽 버튼("다른 이름으로 저장")과 끌어서 저장 차단, 동영상의 다운로드·PIP 버튼 제거. `assets/style.css` 맨 아래: 휴대폰에서 길게 눌러 저장 차단.
+- 억지 효과만 있음: 화면 캡처, 개발자 도구, 공개 저장소(GitHub)에서 직접 받는 것은 막을 수 없음.
+
 ## 방문자 통계
 - GoatCounter (계정 이름 ptlresearch, 대시보드 https://ptlresearch.goatcounter.com).
 - 각 페이지 맨 아래의 보이지 않는 1픽셀 이미지(`class="gc-px"`)로 집계. 자바스크립트 없음, 쿠키 없음.

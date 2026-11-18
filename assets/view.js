@@ -83,3 +83,29 @@
     }, { passive: true });
   });
 })();
+
+/* Media protection (deterrent only): no right-click "save as", no dragging images out,
+   no long-press save on phones, no download / picture-in-picture buttons on videos.
+   A screenshot or the browser's developer tools cannot be blocked by any web page. */
+(function () {
+  var MEDIA = 'img, video, .rm-frame';
+  function onMedia(t) { return t && t.closest && t.closest(MEDIA) && !t.closest('.site-header'); }
+  document.addEventListener('contextmenu', function (e) { if (onMedia(e.target)) e.preventDefault(); }, true);
+  document.addEventListener('dragstart', function (e) { if (onMedia(e.target)) e.preventDefault(); }, true);
+  function harden(v) {
+    v.setAttribute('controlslist', 'nodownload noremoteplayback');
+    v.setAttribute('disablepictureinpicture', '');
+    v.setAttribute('disableremoteplayback', '');
+    try { v.disablePictureInPicture = true; } catch (e) {}
+  }
+  function sweep(n) {
+    if (n.tagName === 'VIDEO') harden(n);
+    if (n.querySelectorAll) Array.prototype.forEach.call(n.querySelectorAll('video'), harden);
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    sweep(document);
+    if ('MutationObserver' in window) new MutationObserver(function (ms) {
+      ms.forEach(function (m) { Array.prototype.forEach.call(m.addedNodes, function (n) { if (n.nodeType === 1) sweep(n); }); });
+    }).observe(document.body, { childList: true, subtree: true });
+  });
+})();

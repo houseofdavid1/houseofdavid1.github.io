@@ -1304,3 +1304,6 @@ a.rov-box:hover { border-color: var(--c, var(--accent)); box-shadow: 0 8px 20px 
 .rb > .rb-pubs { margin: 22px 0 0; }
 .rb > .rq + .rb-pubs { margin-top: 16px; }
 .rb-foot .rb-fr:empty { display: none; }
+
+/* media protection: no drag-out, no long-press save menu, no selection highlight */
+img, video { -webkit-user-drag: none; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
